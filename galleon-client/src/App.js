@@ -16,8 +16,8 @@ import EditIncome from "./Pages/EditIncome"
 /* Import the components */
 
 import Navbar from "./Components/Navbar";
-import isAnon from "./Components/IsAnon"
-import isPrivate from "./Components/IsPrivate"
+/* import isAnon from "./Components/IsAnon"
+import isPrivate from "./Components/IsPrivate" */
 
 
 function App() {
