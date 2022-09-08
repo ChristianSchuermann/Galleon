@@ -9,7 +9,7 @@ const userSchema = new Schema({
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
   expense: { type: Schema.Types.ExpenseID, red: "Expense" },
-  income: { type: Schema.Types.IncomeID, red: "Income" }
+  income: { type: Schema.Types.IncomeID, red: "Income" },
   expense: { type: Schema.Types.ExpenseID, red: "Expense" }
 
 
