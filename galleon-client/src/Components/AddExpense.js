@@ -7,13 +7,14 @@ function AddExpense(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [expense, setExpense] = useState(0)
+  const [category, SetCategory] = useState("")
   const [user, setUser] = useState("")
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const requestBody = { title, description, expense, user };
+    const requestBody = { title, description, category, expense, user };
     
     const storedToken = localStorage.getItem('authToken');
  
@@ -51,6 +52,16 @@ function AddExpense(props) {
           type="text"
           name="description"
           value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+
+
+        {/* should be a drop down menu to chose predefined categories from (f.e. "food", "rent", "vet", ...) */}
+        <label>Category:</label> 
+        <textarea
+          type="text"
+          name="category"
+          value={category}
           onChange={(e) => setDescription(e.target.value)}
         />
 
