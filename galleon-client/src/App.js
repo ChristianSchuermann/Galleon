@@ -1,23 +1,65 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+
+/* import the pages */
+
+import Home from "./Pages/Home";
+import Signup from "./Pages/Signup";
+import Login from "./Pages/Login";
+import Profile from "./Pages/Profile"
+import Error from "./Pages/Error"
+import IncomeList from "./Pages/IncomeList"
+import ExpenseList from "./Pages/ExpenseList"
+import EditExpense from "./Pages/EditExpense"
+import EditIncome from "./Pages/EditIncome"
+
+/* Import the components */
+
+import Navbar from "./Components/Navbar";
+import isAnon from "./Components/IsAnon"
+import isPrivate from "./Components/IsPrivate"
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <Navbar />
+
+      <Routes>      
+        <Route path="/" element={<Home />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+
+{/*   Option A: Nested Routes          */}
+
+        <Route path="/profile" element={<Profile />}>
+          <Route path="/income" element={<IncomeList />} />
+          <Route path="/income/:incomeID" element={<EditIncome />} />
+          <Route path="/expense" element={<ExpenseList />} />
+          <Route path="/expense/expenseID" element={<EditExpense />} />
+          <Route path="*" element={<Error />} />
+        </Route>
+
+
+{/*    Option B: via the profile
+
+        <Route path="/profile/income" element={<IncomeList />} />
+        <Route path="/profile/income/:incomeID" element={<EditIncome />} />
+        <Route path="/profile/expense" element={<ExpenseList />} />
+        <Route path="/profile/expense/:expenseID" element={<EditExpense />} /> */}
+
+
+{/*     Option C: directly 
+        
+        <Route path="/income" element={<IncomeList />} />
+        <Route path="/income/:incomeID" element={<EditIncome />} />
+        <Route path="/expense" element={<ExpenseList />} />
+        <Route path="/expense/expenseID" element={<EditExpense />} /> */}
+
+        <Route path="*" element={<Error />} />
+
+      </Routes>
     </div>
   );
 }
