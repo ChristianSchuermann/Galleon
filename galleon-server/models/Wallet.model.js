@@ -6,7 +6,7 @@ const WalletSchema = new Schema({
 
   income: { type: Schema.Types.IncomeID, red: "Income" },
   expense: { type: Schema.Types.ExpenseID, red: "Expense" },
-  user: {type: Schema.Types.ExpenseID, red: "User"}
+  user: {type: Schema.Types.UserID, red: "User"}
 
 });
  
