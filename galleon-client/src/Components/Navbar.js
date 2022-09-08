@@ -3,8 +3,7 @@ import { useContext } from "react";
 import { AuthContext } from "../context/auth.context"; 
 
 function Navbar() {
-    // Subscribe to the AuthContext to gain access to
-    // the values from AuthContext.Provider `value` prop
+
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext); 
   
     return (
@@ -26,6 +25,10 @@ function Navbar() {
             <Link to="/expense">
               <button>Your Expenses</button>
             </Link>
+{/* 
+            <Link to="/expense">
+              <button>Compare them!</button>
+            </Link> */}
 
             <button onClick={logOutUser}>Logout</button>
           </>
@@ -33,9 +36,17 @@ function Navbar() {
    
         {!isLoggedIn && (
           <>
-            <Link to="/"><button>Home</button></Link>
-            <Link to="/signup"> <button>Sign Up</button> </Link>
-            <Link to="/login"> <button>Login</button> </Link>
+            <Link to="/">
+                <button>Home</button>
+            </Link>
+
+            <Link to="/signup">
+                <button>Sign Up</button>
+            </Link>
+
+            <Link to="/login">
+                <button>Login</button>
+            </Link>
           </>
         )}
       </nav>
