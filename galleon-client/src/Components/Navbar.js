@@ -12,7 +12,7 @@ function Navbar() {
   
         {isLoggedIn && (
           <>
-          <span>Welcome back {user.name}!</span>
+          <span>Welcome back {user.firstName} {user.lastName}!</span>
           <br/>
 
             <Link to="/">
