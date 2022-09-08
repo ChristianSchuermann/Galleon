@@ -62,7 +62,7 @@ function AddExpense(props) {
           type="text"
           name="category"
           value={category}
-          onChange={(e) => setDescription(e.target.value)}
+          onChange={(e) => SetCategory(e.target.value)}
         />
 
         <label>Amount:</label>
