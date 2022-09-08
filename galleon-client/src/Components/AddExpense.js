@@ -58,7 +58,7 @@ function AddExpense(props) {
 
         {/* should be a drop down menu to chose predefined categories from (f.e. "food", "rent", "vet", ...) */}
         <label>Category:</label> 
-        <textarea
+        <textarea // <---- maybe this one has to change?
           type="text"
           name="category"
           value={category}

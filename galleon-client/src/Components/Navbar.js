@@ -26,7 +26,7 @@ function Navbar() {
               <button>Your Expenses</button>
             </Link>
 {/* 
-            <Link to="/expense">
+            <Link to="/ThisRoundThingyWhereUCanSeeIncomeAndExpenseAsACake">
               <button>Compare them!</button>
             </Link> */}
 
