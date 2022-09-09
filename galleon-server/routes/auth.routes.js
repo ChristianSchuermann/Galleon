@@ -26,33 +26,48 @@ router.post('/signup', (req, res) => {
       return;
     }
   
-    //check if user already exists
-    User.findOne({ email }).then((foundUser) => {
-      if (foundUser) {
-        res.status(400).json({ errorMessage: 'User is already exists. Please log in.' });
-      }
-    });
-  
-    //If no found user -> create user
-    const salt = bcrypt.genSaltSync(saltRounds);
-    const hashedPassword = bcrypt.hashSync(password, salt);
-    User.create({
-      password: hashedPassword,
-      email
-    })
-      .then((createdUser) => {
-        const { email } = createdUser;
-        const user = { email };
-        res.render(201).json({ user: user });
-      })
-      .catch((err) => console.log(err));
+//check if user already exists
+User.findOne({ email })
+.then((foundUser) => {
+  // If the user with the same email already exists, send an error response
+  if (foundUser) {
+    res.status(400).json({ message: "User is already exists. Please log in." });
+    return;
+  }
+
+  // If email is unique, proceed to hash the password
+  const salt = bcrypt.genSaltSync(saltRounds);
+  const hashedPassword = bcrypt.hashSync(password, salt);
+
+  // Create the new user in the database
+ 
+  return User.create({ email, password: hashedPassword,});
+})
+.then((createdUser) => {
+  // Deconstruct the newly created user object to omit the password
+  // We should never expose passwords publicly
+  const { email, _id } = createdUser;
+
+  // Create a new object that doesn't expose the password
+  const user = { email, _id };
+
+  // Send a json response containing the user object
+  res.status(201).json({ user: user });
+})
+.catch(err => {
+  console.log(err);
+  res.status(500).json({ message: "Internal Server Error" })
+});
+
   });
+
+  
   
   router.post('/login', (req, res) => {
     const { email, password } = req.body;
     
     if (email === '' || password === '') {
-      res.status(400).json({ errorMessage: 'All fields are mandatory' });
+      res.status(400).json({ errorMessage: 'All fields are mandatory.' });
       return;
     }
   
