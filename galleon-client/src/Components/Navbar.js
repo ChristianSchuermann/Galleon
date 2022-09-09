@@ -35,15 +35,18 @@ function Navbar() {
         )}
    
         {!isLoggedIn && (
-          <>
+          <><br/>
+            <br/>
             <Link to="/">
                 <button>Home</button>
             </Link>
-
+            <br/>
+            <br/>
             <Link to="/signup">
                 <button>Sign Up</button>
             </Link>
-
+            <br/>
+            <br/>
             <Link to="/login">
                 <button>Login</button>
             </Link>
