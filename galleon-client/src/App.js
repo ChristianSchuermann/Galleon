@@ -22,9 +22,11 @@ import isPrivate from "./Components/IsPrivate" */
 
 function App() {
   return (
-    <div className="App">
+    <>
+    <Navbar />
+    <div className="bg-white w-full h-screen">
 
-      <Navbar />
+      
 
       <Routes>      
         <Route path="/" element={<Home />} />
@@ -61,6 +63,7 @@ function App() {
 
       </Routes>
     </div>
+    </>
   );
 }
 

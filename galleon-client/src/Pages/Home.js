@@ -3,6 +3,8 @@ function Home() {
       <div>
         <h1>Welcome to Galleon</h1>
         <br/>
+        <br/>
+        <br/>
         <img src={require("../Images/kindpng_7344353.png")} alt="Galleon"></img>
       </div>
     );
