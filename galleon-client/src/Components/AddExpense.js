@@ -73,7 +73,7 @@ function AddExpense(props) {
           onChange={(e) => setExpense(e.target.value)}
         />
 
-        <button type="submit">Submit</button>
+        <button type="submit"> ʛ Submit</button>
       </form>
     </div>
   );

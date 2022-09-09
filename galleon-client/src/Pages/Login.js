@@ -48,7 +48,8 @@ function Login(props) {
           value={email}
           onChange={handleEmail}
         />
- 
+        <br/>
+        <br/>
         <label>Password:</label>
         <input
           type="password"
@@ -57,15 +58,16 @@ function Login(props) {
           onChange={handlePassword}
         />
 
-        <br />
+        <br/>
+        <br/>
  
-        <button type="submit">Login</button>
+        <button type="submit"> ʛ Login</button>
       </form>
       { errorMessage && <p className="error-message">{errorMessage}</p> }
  
       <p>Don't have an account yet?</p>
 
-      <Link to={"/signup"}> Sign Up</Link>
+      <Link to={"/signup"}>Sign Up</Link>
 
     </div>
   )

@@ -49,7 +49,8 @@ function Signup(props) {
           value={email}
           onChange={handleEmail}
         />
- 
+        <br/>
+        <br/>
         <label>Password:</label>
         <input 
           type="password"
@@ -57,7 +58,8 @@ function Signup(props) {
           value={password}
           onChange={handlePassword}
         />
- 
+        <br/>
+        <br/>
         <label>First Name:</label>
         <input 
           type="text"
@@ -65,7 +67,8 @@ function Signup(props) {
           value={firstName}
           onChange={handleFirstName}
         />
-
+        <br/>
+        <br/>
         <label>Last Name:</label>
         <input 
           type="text"
@@ -75,8 +78,8 @@ function Signup(props) {
         />
 
         <br/>
-
-        <button type="submit">Sign Up</button>
+        <br/> 
+        <button type="submit"> ʛ Sign Up</button>
 
       </form>
  
