@@ -33,11 +33,11 @@ function App() {
 
 {/*   Option A: Nested Routes          */}
 
-        <Route path="/profile" element={<Profile />}>
-          <Route path="/income" element={<IncomeList />} />
-          <Route path="/income/:incomeID" element={<EditIncome />} />
-          <Route path="/expense" element={<ExpenseList />} />
-          <Route path="/expense/expenseID" element={<EditExpense />} />
+        <Route element={<Profile />}>
+          <Route path="/profile/income" element={<IncomeList />} />
+          <Route path="/profile/income/:incomeID" element={<EditIncome />} />
+          <Route path="/profile/expense" element={<ExpenseList />} />
+          <Route path="/profile/expense/:expenseID" element={<EditExpense />} />
           <Route path="*" element={<Error />} />
         </Route>
 
