@@ -15,15 +15,15 @@ function Navbar() {
           <br/>
 
             <Link to="/">
-              <button>Home</button>
+              <button> ʛ Home</button>
            </Link>
 
             <Link to="/income">
-              <button>Your Incomes</button>
+              <button> ʛ Your Incomes</button>
             </Link>
 
             <Link to="/expense">
-              <button>Your Expenses</button>
+              <button> ʛ Your Expenses</button>
             </Link>
 {/* 
             <Link to="/ThisRoundThingyWhereUCanSeeIncomeAndExpenseAsACake">
@@ -38,17 +38,17 @@ function Navbar() {
           <><br/>
             <br/>
             <Link to="/">
-                <button>Home</button>
+                <button> ʛ Home</button>
             </Link>
             <br/>
             <br/>
             <Link to="/signup">
-                <button>Sign Up</button>
+            <button > ʛ Sign Up</button>
             </Link>
             <br/>
             <br/>
             <Link to="/login">
-                <button>Login</button>
+                <button> ʛ Login</button>
             </Link>
           </>
         )}

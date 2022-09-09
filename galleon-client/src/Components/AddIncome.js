@@ -73,7 +73,7 @@ function AddIncome(props) {
           onChange={(e) => setIncome(e.target.value)}
         />
 
-        <button type="submit">Submit</button>
+        <button type="submit"> ʛ Submit</button>
       </form>
     </div>
   );
