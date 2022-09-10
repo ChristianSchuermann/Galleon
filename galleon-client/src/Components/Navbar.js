@@ -55,7 +55,7 @@ function Navbar() {
               >
                 <Link
                   to={link.link}
-                  className="text-white hover:text-[#FCAC12] duration-500 bg-[#7F3DFF]"
+                  className="text-gray-400 hover:text-[#FCAC12] duration-500 bg-[#7F3DFF]"
                 >
                   {" "}
                   {link.name}
