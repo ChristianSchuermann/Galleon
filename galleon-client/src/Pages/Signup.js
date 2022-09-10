@@ -38,6 +38,26 @@ function Signup(props) {
     <div>
       <h1>Sign Up</h1>
 
+      <label>First Name:</label>
+      <input
+        type="text"
+        name="firstName"
+        value={firstName}
+        onChange={handleFirstName}
+      />
+      <br />
+      <br />
+      <label>Last Name:</label>
+      <input
+        type="text"
+        name="lastName"
+        value={lastName}
+        onChange={handleLastName}
+      />
+
+      <br />
+      <br />
+
       <form onSubmit={handleSignupSubmit}>
         <label>Email:</label>
         <input type="email" name="email" value={email} onChange={handleEmail} />
@@ -52,25 +72,7 @@ function Signup(props) {
         />
         <br />
         <br />
-        <label>First Name:</label>
-        <input
-          type="text"
-          name="firstName"
-          value={firstName}
-          onChange={handleFirstName}
-        />
-        <br />
-        <br />
-        <label>Last Name:</label>
-        <input
-          type="text"
-          name="lastName"
-          value={lastName}
-          onChange={handleLastName}
-        />
 
-        <br />
-        <br />
         <button type="submit"> ʛ Sign Up</button>
       </form>
 

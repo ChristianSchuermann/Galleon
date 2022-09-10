@@ -22,8 +22,16 @@ import isPrivate from "./Components/IsPrivate" */
 function App() {
   return (
     <>
-      <Navbar />
-      <div className="bg-white w-full h-screen">
+     <Navbar />
+     <br/>
+     <br/>
+     <br/>
+     <br/>
+     <br/>
+
+
+      <div className="bg-yellow-600 w-full h-screen">
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
@@ -59,6 +67,7 @@ function App() {
           <Route path="*" element={<Error />} />
         </Routes>
       </div>
+
     </>
   );
 }
