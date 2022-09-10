@@ -31,7 +31,7 @@ function App() {
      <br/>
 
 
-      <div className="bg-yellow-600 w-full h-screen">
+      <div className="bg-[#FCAC12] w-full h-screen">
 
         <Routes>
           <Route path="/" element={<Home />} />
