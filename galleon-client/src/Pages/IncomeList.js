@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function IncomeList() {
-  return (
-    <div>IncomeList</div>
-  )
+  return <div>IncomeList</div>;
 }
 
-export default IncomeList
+export default IncomeList;
