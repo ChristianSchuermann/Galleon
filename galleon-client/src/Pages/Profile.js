@@ -1,12 +1,12 @@
-import React from 'react'
-import { Outlet } from "react-router-dom"
+import React from "react";
+import { Outlet } from "react-router-dom";
 function Profile() {
   return (
-    <div>Profile
-    <Outlet />
+    <div>
+      Profile
+      <Outlet />
     </div>
-
-  )
+  );
 }
 
-export default Profile
+export default Profile;

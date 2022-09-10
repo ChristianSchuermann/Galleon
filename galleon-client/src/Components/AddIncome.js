@@ -6,33 +6,29 @@ const API_URL = "http://localhost:5005";
 function AddIncome(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [income, setIncome] = useState(0)
-  const [category, SetCategory] = useState("")
-  const [user, setUser] = useState("")
-
+  const [income, setIncome] = useState(0);
+  const [category, SetCategory] = useState("");
+  const [user, setUser] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const requestBody = { title, description, category, income, user };
-    
-    const storedToken = localStorage.getItem('authToken');
- 
+
+    const storedToken = localStorage.getItem("authToken");
+
     axios
-      .post(
-      `${API_URL}/api/income`,
-      requestBody,
-      { headers: { Authorization: `Bearer ${storedToken}` } }
-    )
+      .post(`${API_URL}/api/income`, requestBody, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
       .then((response) => {
-      setTitle("");
-      setDescription("");
-      setIncome(0);
-      setUser("")
-    })
+        setTitle("");
+        setDescription("");
+        setIncome(0);
+        setUser("");
+      })
       .catch((error) => console.log(error));
   };
-
 
   return (
     <div>
@@ -55,9 +51,8 @@ function AddIncome(props) {
           onChange={(e) => setDescription(e.target.value)}
         />
 
-
         {/* should be a drop down menu to chose predefined categories from (f.e. "food", "rent", "vet", ...) */}
-        <label>Category:</label> 
+        <label>Category:</label>
         <textarea // <---- maybe this one has to change?
           type="text"
           name="category"
