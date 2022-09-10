@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
-import loginImg from "../Images/piggy-bank.png";
+import loginImg from "../Images/galleons2.png";
 
 const API_URL = "http://localhost:5005";
 
@@ -42,7 +42,7 @@ function Login(props) {
         <img className="w-full h-full object-cover" src={loginImg} alt="piggy bank" />
       </div>
       <div className="bg-[#FCAC12] flex flex-col justify-center">
-        <form className="max-w-[800px]  max-h-[800] w-full mx-auto bg-[#7F3DFF] p-8 px-8 rounded-lg" onSubmit={handleLoginSubmit}>
+        <form className="max-w-[500px]  max-h-[400] w-full mx-auto bg-[#7F3DFF] p-12 px-11 rounded-lg" onSubmit={handleLoginSubmit}>
           <h2 className ="text-4x1 dark:text-white font-bold text-center"> Log In</h2>
           <div className="flex flex-col text-white py-2">
             <label>Email:</label>
