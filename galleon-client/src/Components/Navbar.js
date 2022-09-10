@@ -21,7 +21,7 @@ function Navbar() {
   return (
     <nav>
       <div className="shadow-md w-full fixed top-0 left-0 bg-[#7F3DFF]">
-        <div className="md:flex items-center justify-between bg-[#7F3DFF] py-4 md:px-10 px-7">
+        <div className="md:flex items-center justify-between bg-[#7F3DFF] md:px-10 px-7">
           {" "}
           {/* Navbar */}
           <div
