@@ -33,7 +33,7 @@ function Navbar() {
               {/* Icon */}
               <ion-icon name="cash-outline"></ion-icon>
             </span>
-            Galleon
+            ʛalleon
           </div>
           <div
             onClick={() => setOpen(!open)}
