@@ -16,8 +16,6 @@ function Navbar() {
   let [open, setOpen] = useState(false);
   /*   const { isLoggedIn, user, logOutUser } = useContext(AuthContext); */
 
-  //violet from tailwind.config.js for navbar
-
   return (
     <nav>
       <div className="shadow-md w-full fixed top-0 left-0 bg-[#7F3DFF]">
@@ -26,7 +24,7 @@ function Navbar() {
           {/* Navbar */}
           <div
             className="font-bold text-2x1 curser-pointer flex items-center font-[Poppins]
-        text-grey-800 bg-[#7F3DFF]" //Icon & Name
+        text-[#FCAC12] bg-[#7F3DFF]" //Icon & Name
           >
             <span className="text-3x1 text-[#FCAC12] mr-1 pt-2 bg-[#7F3DFF]">
               {" "}
@@ -57,7 +55,7 @@ function Navbar() {
               >
                 <Link
                   to={link.link}
-                  className="text-gray-800 hover:text-gray-400 duration-500 bg-[#7F3DFF]"
+                  className="text-white hover:text-[#FCAC12] duration-500 bg-[#7F3DFF]"
                 >
                   {" "}
                   {link.name}
