@@ -6,6 +6,7 @@ import financeImg3 from '../Images/3.jpg';
 function Home() {
   return (
 
+
     <>
     <div className="container mx-auto  px-4 bg-[#7F3DFF] mt-40 flex w-2/3 h-3/4  justify-between rounded-md">
       <div className='pt-10 pl-5'>
@@ -47,3 +48,4 @@ function Home() {
 }
 
 export default Home;
+
