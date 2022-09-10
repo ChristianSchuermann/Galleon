@@ -15,7 +15,7 @@ import EditIncome from "./Pages/EditIncome";
 
 /* Import the components */
 
-import Footer from "./Components/Footer"
+import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
 /* import isAnon from "./Components/IsAnon"
 import isPrivate from "./Components/IsPrivate" */
@@ -23,16 +23,12 @@ import isPrivate from "./Components/IsPrivate" */
 function App() {
   return (
     <div>
-     <Navbar />
-     <br/>
-     <br/>
-     <br/>
-
-
-
+      <Navbar />
+      <br />
+      <br />
+      <br />
 
       <div className="w-full h-screen">
-
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
@@ -69,7 +65,6 @@ function App() {
         </Routes>
         <Footer />
       </div>
-
     </div>
   );
 }
