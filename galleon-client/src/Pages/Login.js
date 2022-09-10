@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
+import loginImg from "../Images/piggy-bank.png";
 
 const API_URL = "http://localhost:5005";
 
@@ -36,32 +37,44 @@ function Login(props) {
   };
 
   return (
-    <div className="LoginPage">
-      <h1>Login</h1>
+    <div className="grid grid-cols-1 sm:grid-cols-2 h-screen w-full">
+      <div className="hidden sm:block">
+        <img className="w-full h-full object-cover" src={loginImg} alt="piggy bank" />
+      </div>
+      <div className="bg-[#FCAC12] flex flex-col justify-center">
+        <form className="max-w-[800px]  max-h-[800] w-full mx-auto bg-[#7F3DFF] p-8 px-8 rounded-lg" onSubmit={handleLoginSubmit}>
+          <h2 className ="text-4x1 dark:text-white font-bold text-center"> Log In</h2>
+          <div className="flex flex-col text-white py-2">
+            <label>Email:</label>
+            <input
+              className="rounded-lg bg-white mt-2 p-2 focus:border-[#00A86B] focus:outline-none text-black"
+              type="email"
+              name="email"
+              value={email}
+              onChange={handleEmail}
+            />
+          </div>
+          <div className="flex flex-col text-white py-2">
+            <label>Password:</label>
+            <input
+              className="rounded-lg bg-white mt-2 p-2 focus:border-[#00A86B] focus:outline-none text-black"
+              type="password"
+              name="password"
+              value={password}
+              onChange={handlePassword}
+            />
+          </div>
+          <div className= "w-full my-5 py-2 bg-[#FCAC12] rounded-lg shadow-lg shadow-[#FCAC12]/50 hover:shadow-[#FCAC12]/25 text-white font-semibold">
+          <button className= "w-full bg-[#FCAC12]" type="submit"> ʛ Login</button>
+          </div>
+          <div className="flex justify-between text-white">
+          <p>Don't have an account yet?</p>
 
-      <form onSubmit={handleLoginSubmit}>
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
-        <br />
-        <br />
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
-
-        <br />
-        <br />
-
-        <button type="submit"> ʛ Login</button>
-      </form>
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-      <p>Don't have an account yet?</p>
-
-      <Link to={"/signup"}>Sign Up</Link>
+        <Link className="text-white bg-[#FCAC12] p-1.5 px-1.5 rounded-lg shadow-lg shadow-[#FCAC12]/50" to={"/signup"}>Sign Up</Link>
+        </div>
+        </form>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+      </div>
     </div>
   );
 }
