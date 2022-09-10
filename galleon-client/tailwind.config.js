@@ -3,13 +3,13 @@ module.exports = {
   content: ["./public/index.html}"],
   theme: {
     colors: {
-      white: '#FFFFFF',
-      black: '#0D0E0F',
-      violet: '#7F3DFF',
-      red: '#FD3C4A',
-      green: '#00A86B',
-      yellow: '#FCAC12',
-      blue: '#0077FF'
+      'white': '#FFFFFF',
+      'black': '#0D0E0F',
+      'violet': '#7F3DFF',
+      'red': '#FD3C4A',
+      'green': '#00A86B',
+      'yellow': '#FCAC12',
+     'blue': '#0077FF'
     },
     extend: { fontFamily:{
       inter: ['Inter', 'sans-serif']
