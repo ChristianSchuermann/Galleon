@@ -87,7 +87,7 @@ function Login(props) {
               className="text-white bg-[#FCAC12] p-1.5 px-1.5 rounded-lg shadow-lg shadow-[#FCAC12]/50"
               to={"/signup"}
             >
-              Sign Up
+              ʛ Sign Up
             </Link>
           </div>
         </form>
