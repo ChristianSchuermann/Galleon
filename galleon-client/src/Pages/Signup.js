@@ -108,7 +108,7 @@ function Signup(props) {
               to={"/login"}
             >
               {" "}
-              Login
+              ʛ Login
             </Link>
           </div>
         </form>
