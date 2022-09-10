@@ -15,13 +15,14 @@ import EditIncome from "./Pages/EditIncome";
 
 /* Import the components */
 
+import Footer from "./Components/Footer"
 import Navbar from "./Components/Navbar";
 /* import isAnon from "./Components/IsAnon"
 import isPrivate from "./Components/IsPrivate" */
 
 function App() {
   return (
-    <>
+    <div>
      <Navbar />
      <br/>
      <br/>
@@ -66,9 +67,10 @@ function App() {
 
           <Route path="*" element={<Error />} />
         </Routes>
+        <Footer />
       </div>
 
-    </>
+    </div>
   );
 }
 
