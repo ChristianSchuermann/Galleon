@@ -19,7 +19,7 @@ function Navbar() {
   //violet from tailwind.config.js for navbar
 
   return (
-    <>
+    <nav>
       <div className="shadow-md w-full fixed top-0 left-0 bg-violet-600">
         <div className="md:flex items-center justify-between bg-violet-600 py-4 md:px-10 px-7">
           {" "}
@@ -111,7 +111,7 @@ function Navbar() {
           </>
         )} */}
       </div>
-    </>
+    </nav>
   );
 }
 
