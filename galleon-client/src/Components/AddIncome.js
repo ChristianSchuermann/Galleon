@@ -8,7 +8,7 @@ function AddIncome(props) {
   const [description, setDescription] = useState("");
   const [income, setIncome] = useState(0);
   const [category, SetCategory] = useState("");
-/*   const [user, setUser] = useState(""); */
+  /*   const [user, setUser] = useState(""); */
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,7 +25,7 @@ function AddIncome(props) {
         setTitle("");
         setDescription("");
         setIncome(0);
-/*         setUser(""); */
+        /*         setUser(""); */
       })
       .catch((error) => console.log(error));
   };

@@ -6,36 +6,37 @@ import AddIncome from "../Components/AddIncome";
 
 const API_URL = "http://localhost:5005";
 
-function IncomeList() {
-  const [incomes, setIncomes] = useState([]);
+function IncomeListPage() {
+  const [income, setIncome] = useState([]);
 
-  const getAllIncomes = () => {
+  const getIncome = () => {
     const storedToken = localStorage.getItem("authToken");
-    
-  axios
-    .get(
-    `${API_URL}//profile/income`,
-    { headers: { Authorization: `Bearer ${storedToken}` } }
-  )
-    .then((response) => setIncomes(response.data))
-    .catch((error) => console.log(error));
+
+    // Send the token through the request "Authorization" Headers
+    axios
+      .get(`${API_URL}/api/income`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then((response) => setIncome(response.data))
+      .catch((error) => console.log(error));
   };
 
+  // We set this effect will run only once, after the initial render
+  // by setting the empty dependency array - []
   useEffect(() => {
-    getAllIncomes();
-  }, [] );
+    getIncome();
+  }, []);
 
-  
   return (
-    <div className="IncomeList">
-      
-      <AddIncome refreshIncomes={getAllIncomes} />
-      
-      { incomes.map((income) => <IncomeCard key={income._id} {...income} />  )} 
-       
+    <div>
+      <AddIncome refreshIncome={getIncome} />
+
+      {income.map((income) => (
+        <IncomeCard key={income._id} {...income} />
+      ))}
     </div>
   );
 }
 
-export default IncomeList;
+export default IncomeListPage;
 
