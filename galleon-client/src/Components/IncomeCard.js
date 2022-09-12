@@ -6,8 +6,8 @@ function IncomeCard({ title, income, description }) {
       <p>{income}</p>
       <h4>Description:</h4>
       <p>{description}</p>
-      <button>Edit Expense</button>
-      <button>Delete Expense</button>
+      <button>Edit Income</button>
+      <button>Delete Income</button>
     </div>
   );
 }
