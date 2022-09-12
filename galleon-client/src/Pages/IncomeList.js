@@ -11,31 +11,29 @@ function IncomeListPage() {
 
   const getIncome = () => {
     const storedToken = localStorage.getItem("authToken");
- 
-  // Send the token through the request "Authorization" Headers
-  axios
-    .get(
-    `${API_URL}/api/income`,
-    { headers: { Authorization: `Bearer ${storedToken}` } }
-  )
-    .then((response) => setIncome(response.data))
-    .catch((error) => console.log(error));
+
+    // Send the token through the request "Authorization" Headers
+    axios
+      .get(`${API_URL}/api/income`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then((response) => setIncome(response.data))
+      .catch((error) => console.log(error));
   };
 
   // We set this effect will run only once, after the initial render
   // by setting the empty dependency array - []
   useEffect(() => {
     getIncome();
-  }, [] );
+  }, []);
 
-  
   return (
     <div>
-      
-      <AddIncome refreshProjects={getIncome} />
-      
-      { income.map((income) => <IncomeCard key={income._id} {...income} />  )} 
-       
+      <AddIncome refreshIncome={getIncome} />
+
+      {income.map((income) => (
+        <IncomeCard key={income._id} {...income} />
+      ))}
     </div>
   );
 }

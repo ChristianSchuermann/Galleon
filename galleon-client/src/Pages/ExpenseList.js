@@ -29,7 +29,7 @@ function ExpenseListPage() {
 
   return (
     <div>
-      <AddExpense refreshProjects={getExpense} />
+      <AddExpense refreshExpense={getExpense} />
 
       {expense.map((expense) => (
         <ExpenseCard key={expense._id} {...expense} />

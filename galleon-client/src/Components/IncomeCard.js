@@ -1,13 +1,15 @@
-function IncomeCard({ title, income, description }) {
+import { Link } from "react-router-dom";
+
+// We are deconstructing props object directly in the parentheses of the function
+function IncomeCard({ title, description, income, category, _id }) {
   return (
-    <div className="container ">
-      <h3>{title}</h3>
-      <h4>Amount:</h4>
+    <div>
+      <Link to={`/profile/income/${_id}`}>
+        <h3>{title}</h3>
+      </Link>
+      <p>{description} </p>
       <p>{income}</p>
-      <h4>Description:</h4>
-      <p>{description}</p>
-      <button>Edit Income</button>
-      <button>Delete Income</button>
+      <p>{category}</p>
     </div>
   );
 }
