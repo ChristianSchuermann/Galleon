@@ -1,21 +1,15 @@
-import expenseIcon from "../Images/icons8-shopping-50.png";
+import { Link } from "react-router-dom";
 
-function ExpenseCard({ title, expense, description }) {
+// We are deconstructing props object directly in the parentheses of the function
+function ExpenseCard({ title, description, expense, category, _id }) {
   return (
-    <div className="">
-    <div className="box-border h-36 w-60  rounded-3xl flex items-center justify-center bg-[#FD3C4A] h-200">
-      <img className="pr-5"src={expenseIcon}  alt="Expense Icon"/>
-      <div>
-      <h3 className="md:text-xl lg:text-2xl text-white">{title}</h3>
-      <h4 className="md:text-xl lg:text-2xl text-white">Amount:</h4>
-      <p className="md:text-xl lg:text-2xl text-white">{expense}</p>
-      <h4 className="md:text-lg lg:text-xl text-white">Description:</h4>
-      <p className="md:text-lg lg:text-xl text-white">{description}</p>
-      </div>
-    </div>
-      <button className="bg-[#FD3C4A] text-[#FFFFFF] font-[Poppins] py-2 px-4 rounded  hover:bg-red-400 duration-500 mt-5 mr-5">Edit Expense</button>
-      <button className="bg-[#FD3C4A] text-[#FFFFFF] font-[Poppins] py-2 px-4 rounded  hover:bg-red-400
-    duration-500">Delete Expense</button>
+    <div>
+      <Link to={`/profile/expense/${_id}`}>
+        <h3>{title}</h3>
+      </Link>
+      <p>{description} </p>
+      <p>{expense}</p>
+      <p>{category}</p>
     </div>
   );
 }
