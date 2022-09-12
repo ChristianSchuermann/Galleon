@@ -7,7 +7,7 @@ import IncomeList from "./IncomeList"
 
 function Profile() {
   return (
-    <div className="grid-cols-2">
+    <div className="">
 
       <div>
         <Wallet />

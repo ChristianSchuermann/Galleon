@@ -32,8 +32,8 @@ function AddExpense(props) {
   };
 
   return (
-    <div>
-      <h3>Add Expense</h3>
+    <div className="w-96 border-2">
+      <h3>Add Expense</h3> 
 
       <form onSubmit={handleSubmit}>
         <label>Title:</label>

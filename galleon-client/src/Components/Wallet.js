@@ -1,7 +1,6 @@
 
 
-export default function Wallet({
-    name,
+function Wallet({
     amount,
     max
 }) {
@@ -9,22 +8,23 @@ export default function Wallet({
     if (amount > max) {
         classNames.push("bg-red", "bg-opacity-10")
     } else {
-        classNames.push("bg-white", "border")
+        classNames.push("bg-white")
     }
 
     return (
-        <div className={classNames.join(" ")}>
-            <div className="card-body">
+        <div className= {classNames.join(" ")} >
+        <div className="flex items-center justify-center">
+            <div className="py-10 w-96 border-2 flex items-center flex-col">
                 <div >
-                    <div className="card-title">{name}</div>
-                    
+                    <div className="pb-2">Your Wallet:</div>   
                 </div>
-                <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
-                    <div className="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full" variant={getProgressBarVariant(amount, max)}
+                <div className="w-6/12 rounded-full ">
+                    <div className="bg-gray-200 text-xs font-medium text-blue-100 text-center py-2 leading-none rounded-full" variant={getProgressBarVariant(amount, max)}
                         min={0}
                         max={max}
                         now={amount}></div>
                 </div>
+            </div>
             </div>
         </div>
 
@@ -38,3 +38,4 @@ function getProgressBarVariant(amount, max) {
     return "bg-[#00A86B]"
   }
 
+  export default Wallet;
