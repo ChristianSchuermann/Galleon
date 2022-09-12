@@ -8,12 +8,12 @@ function AddExpense(props) {
   const [description, setDescription] = useState("");
   const [expense, setExpense] = useState(0);
   const [category, SetCategory] = useState("");
-  const [user, setUser] = useState("");
+  /*   const [user, setUser] = useState(""); */
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const requestBody = { title, description, category, expense, user };
+    const requestBody = { title, description, category, expense };
 
     const storedToken = localStorage.getItem("authToken");
 
@@ -25,7 +25,7 @@ function AddExpense(props) {
         setTitle("");
         setDescription("");
         setExpense(0);
-        setUser("");
+        /*         setUser(""); */
       })
       .catch((error) => console.log(error));
   };
