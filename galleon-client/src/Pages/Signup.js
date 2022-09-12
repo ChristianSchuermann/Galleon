@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import loginImg from "../Images/galleons2.png";
+import galleons from "../Images/galleons.png";
 
 const API_URL = "http://localhost:5005";
 
@@ -36,20 +36,16 @@ function Signup(props) {
   };
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 h-screen w-full">
-      <div className="hidden sm:block">
-        <img
-          className="w-full h-full object-cover"
-          src={loginImg}
-          alt="piggy bank"
-        />
-      </div>
-      <div className="bg-[#FCAC12] flex flex-col justify-center">
+    <div className="grid grid-cols-1 mx">
+
+      <img className="w-86 h-86 z-10 ml-64 absolute " src={galleons} alt="Galleons"/>
+     
+      <div className=" flex flex-col justify-center z-20 mt-16 mb-40">
         <form
           className="max-w-[500px]  max-h-[400] w-full mx-auto bg-[#7F3DFF] p-12 px-11 rounded-lg"
           onSubmit={handleSignupSubmit}
         >
-          <h2 className="text-4x1 dark:text-white font-bold text-center">
+          <h2 className="text-4x1 text-white font-bold text-center">
             {" "}
             Sign up!
           </h2>
@@ -94,22 +90,16 @@ function Signup(props) {
             />
           </div>
 
-          <div className="w-full my-5 py-2 bg-[#FCAC12] rounded-lg shadow-lg shadow-[#FCAC12]/50 hover:shadow-[#FCAC12]/25 text-white font-semibold">
-            <button className="w-full bg-[#FCAC12]" type="submit">
+          <div className="w-full my-5 py-2 rounded-lg font-semibold  bg-white hover:bg-violet-400 text-[#7F3DFF]">
+            <button className="w-full" type="submit">
               {" "}
               ʛ Sign Up
             </button>
           </div>
-          <div className="flex justify-between text-white">
+          <div className="flex justify-center text-white">
             <p>Already have an account?</p>
 
-            <Link
-              className="text-white bg-[#FCAC12] p-1.5 px-1.5 rounded-lg shadow-lg shadow-[#FCAC12]/50"
-              to={"/login"}
-            >
-              {" "}
-              ʛ Login
-            </Link>
+            <Link className="text-white hover:text-violet-400 ml-2" to={"/login"}>ʛ Login</Link>
           </div>
         </form>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
