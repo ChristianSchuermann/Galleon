@@ -6,36 +6,36 @@ import AddExpense from "../Components/AddExpense";
 
 const API_URL = "http://localhost:5005";
 
-function ExpenseListPage() {
-  const [expense, setExpense] = useState([]);
+function ExpenseList() {
+  const [expenses, setExpenses] = useState([]);
 
-  const getExpense = () => {
+  const getAllExpenses = () => {
     const storedToken = localStorage.getItem("authToken");
-
-    // Send the token through the request "Authorization" Headers
-    axios
-      .get(`${API_URL}/api/expense`, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      })
-      .then((response) => setExpense(response.data))
-      .catch((error) => console.log(error));
+ 
+  axios
+    .get(
+    `${API_URL}/profile/expense`,
+    { headers: { Authorization: `Bearer ${storedToken}` } }
+  )
+    .then((response) => setExpenses(response.data))
+    .catch((error) => console.log(error));
   };
 
-  // We set this effect will run only once, after the initial render
-  // by setting the empty dependency array - []
   useEffect(() => {
-    getExpense();
-  }, []);
+    getAllExpenses();
+  }, [] );
 
+  
   return (
-    <div>
-      <AddExpense refreshProjects={getExpense} />
-
-      {expense.map((expense) => (
-        <ExpenseCard key={expense._id} {...expense} />
-      ))}
+    <div className="ExpenseList">
+      
+      <AddExpense refreshExpenses={getAllExpenses} />
+      
+      { expenses.map((expense) => <ExpenseCard key={expense._id} {...expense} />  )} 
+       
     </div>
   );
 }
 
-export default ExpenseListPage;
+export default ExpenseList;
+
