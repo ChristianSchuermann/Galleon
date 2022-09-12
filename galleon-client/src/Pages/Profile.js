@@ -1,4 +1,6 @@
 import React from "react";
+import ExpenseCard from "../Components/ExpenseCard";
+import IncomeCard from "../Components/IncomeCard";
 import Wallet from "../Components/Wallet";
 import ExpenseList from "./ExpenseList";
 import IncomeList from "./IncomeList"
@@ -6,6 +8,7 @@ import IncomeList from "./IncomeList"
 function Profile() {
   return (
     <div className="grid-cols-2">
+
       <div>
         <Wallet />
         <div>
