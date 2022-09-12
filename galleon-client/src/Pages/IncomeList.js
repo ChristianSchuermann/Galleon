@@ -39,3 +39,4 @@ function IncomeListPage() {
 }
 
 export default IncomeListPage;
+
