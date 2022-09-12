@@ -10,8 +10,7 @@ function Navbar() {
     { name: "ʛ Sign Up", link: "/signup" },
     { name: "ʛ Login", link: "/login" },
     { name: "ʛ Profile", link: "/profile" },
-    { name: "ʛ Your Incomes", link: "/profile/income" },
-    { name: "ʛ Your Expenses", link: "/profile/expense" },
+
   ];
   let [open, setOpen] = useState(false);
   /*   const { isLoggedIn, user, logOutUser } = useContext(AuthContext); */
