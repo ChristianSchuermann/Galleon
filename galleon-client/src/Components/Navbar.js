@@ -1,19 +1,24 @@
-import { Link } from "react-router-dom";
-/* import { useContext } from "react";
-import { AuthContext } from "../context/auth.context"; */
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useContext } from 'react';
 import { useState } from "react";
-import { Button } from "./Button";
+import { AuthContext } from '../context/auth.context';
 
 function Navbar() {
-  const Links = [
-    { name: "ʛ Home", link: "/" },
-    { name: "ʛ Sign Up", link: "/signup" },
-    { name: "ʛ Login", link: "/login" },
-    { name: "ʛ Profile", link: "/profile" },
+  const NewUserLinks = [
 
+    { name: "ʛ Sign Up", link: "/signup" },
+    { name: "ʛ Login", link: "/login" }
   ];
-  let [open, setOpen] = useState(false);
-  /*   const { isLoggedIn, user, logOutUser } = useContext(AuthContext); */
+
+  const UserLinks = [
+
+    { name: "ʛ Profile", link: "/profile" }
+    
+  ];
+
+  const [open, setOpen] = useState(false);
+  const { isLoggedIn, logOutUser } = useContext(AuthContext);
 
   return (
     <nav>
@@ -32,12 +37,12 @@ function Navbar() {
             </span>
             ʛalleon
           </div>
-          <div
-            onClick={() => setOpen(!open)}
-            className="text-3x1 absolute right-8 top-6 curser-pointer md:hidden "
-          >
+          <div onClick={() => setOpen(!open)}  className="text-3x1 absolute right-8 top-6 curser-pointer md:hidden ">
             <ion-icon name={open ? "close" : "menu"}></ion-icon>
           </div>
+
+          {isLoggedIn && (
+            <>
           <ul
             className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-[#7F3DFF]
                         md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all
@@ -47,66 +52,42 @@ function Navbar() {
                             : "top-[-490px] bg-[#7F3DFF] md:opacity-100 opacity-0"
                         }`}
           >
-            {Links.map((link) => (
-              <li
-                key={link.name}
-                className="md:ml-8 text-x1 md:-0 my-7 bg-[#7F3DFF]"
-              >
-                <Link
-                  to={link.link}
-                  className="text-gray-400 hover:text-[#FCAC12] duration-500 bg-[#7F3DFF]"
-                >
+            {UserLinks.map((link) => (
+              <li key={link.name} className="md:ml-8 text-x1 md:-0 my-7 bg-[#7F3DFF]">
+                <Link to={link.link} className="text-gray-400 hover:text-[#FCAC12] duration-500 bg-[#7F3DFF]">
                   {" "}
                   {link.name}
                 </Link>
               </li>
             ))}
-            <Button onClick={<Link to="/Signup"></Link>}></Button>
           </ul>
+          <button onClick={logOutUser}>Logout</button>
+          </>
+            )}
+            {!isLoggedIn && (
+            <>
+          <ul
+            className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-[#7F3DFF]
+                        md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all
+                        duration-500 ease-in ${
+                          open
+                            ? "top-20 opacity-100 bg-[#7F3DFF]"
+                            : "top-[-490px] bg-[#7F3DFF] md:opacity-100 opacity-0"
+                        }`}
+          >
+            {NewUserLinks.map((link) => (
+              <li key={link.name} className="md:ml-8 text-x1 md:-0 my-7 bg-[#7F3DFF]">
+                <Link to={link.link} className="text-gray-400 hover:text-[#FCAC12] duration-500 bg-[#7F3DFF]">
+                  {" "}
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          </>
+            )}
         </div>
-        {/*  {isLoggedIn && (
-          <>
-          <span>Welcome back {user.firstName} {user.lastName}!</span>
-          <br/> */}
-
-        {/*             <Link to="/">
-              <button> ʛ Home</button>
-           </Link>
- */}
-        {/*             <Link to="/income">
-              <button> ʛ Your Incomes</button>
-            </Link> */}
-
-        {/*             <Link to="/expense">
-              <button> ʛ Your Expenses</button>
-            </Link> */}
-        {/* 
-            <Link to="/ThisRoundThingyWhereUCanSeeIncomeAndExpenseAsACake">
-              <button>Compare them!</button>
-            </Link> */}
-
-        {/*             <button onClick={logOutUser}>Logout</button>
-          </>
-        )} */}
-
-        {/*         {!isLoggedIn && (
-          <><br/>
-            <br/>
-            <Link to="/">
-                <button> ʛ Home</button>
-            </Link>
-            <br/>
-            <br/>
-            <Link to="/signup">
-            <button > ʛ Sign Up</button>
-            </Link>
-            <br/>
-            <br/>
-            <Link to="/login">
-                <button> ʛ Login</button>
-            </Link>
-          </>
-        )} */}
+  
       </div>
     </nav>
   );
