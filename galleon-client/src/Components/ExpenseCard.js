@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import expenseIcon from "../Images/icons8-shopping-50.png";
 
 // We are deconstructing props object directly in the parentheses of the function
-function ExpenseCard({ title, description, expense, category, _id }) {
+function ExpenseCard({ title, description, expense, category, _id, User, firstName }) {
+  console.log("data", { User, title, description, expense, category, _id })
   return (
     <>
     <div className="box-border py-10 w-60  rounded-3xl flex items-center justify-center bg-[#FD3C4A] ">
@@ -18,8 +19,13 @@ function ExpenseCard({ title, description, expense, category, _id }) {
       <p className="text-lg lg:text-xl text-white">{category}</p>
     </div>
     </div>
+
+
+
+
     <Link to="/EditExpense"><button className="bg-[#FD3C4A] text-[#FFFFFF] flex items-center justify-center py-2 px-4 rounded  hover:bg-red-400 duration-500 mt-2  ">Edit Expense</button></Link>
     </>
+
   );
 }
 
