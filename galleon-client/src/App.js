@@ -17,14 +17,14 @@ import EditIncome from "./Pages/EditIncome";
 
 import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
-/* import isAnon from "./Components/IsAnon"
-import isPrivate from "./Components/IsPrivate" */
+import IsAnon from "./Components/IsAnon";
+import IsPrivate from "./Components/IsPrivate";
 
 function App() {
   return (
     <div>
       <Navbar />
-      
+
       <br />
       <br />
       <br />
@@ -32,12 +32,32 @@ function App() {
       <div className="w-full h-screen">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
+          <Route
+            path="/signup"
+            element={
+              <IsAnon>
+                <Signup />
+              </IsAnon>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <IsAnon>
+                <Login />
+              </IsAnon>
+            }
+          />
 
           {/*   Option A: Nested Routes          */}
 
-          <Route element={<Profile />}>
+          <Route
+            element={
+              <IsPrivate>
+                <Profile />
+              </IsPrivate>
+            }
+          >
             <Route path="/profile/income" element={<IncomeList />} />
             <Route path="/profile/income/:incomeID" element={<EditIncome />} />
             <Route path="/profile/expense" element={<ExpenseList />} />
