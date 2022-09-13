@@ -6,7 +6,7 @@ const API_URL = "http://localhost:5005";
 function Wallet({ amount, max }) {
   let expenseTotal = 0;
   let incomeTotal = 0;
-  let remaining = expenseTotal -=incomeTotal;
+
   const [walletExpense, setWalletExpense] = useState([]);
   const [walletIncome, setWalletIncome] = useState([]);
 
@@ -52,12 +52,12 @@ function Wallet({ amount, max }) {
     <div className={classNames.join(" ")}>
       <div className="border-2 py-10 w-60  rounded-3xl bg-[#FCAC12]">
 
-      
+
       <h1>Your total income:  {incomeTotal}</h1>
       <h1>Your total expense:  {expenseTotal}</h1>
-      <h1>Remaining: {remaining}</h1>
+      <h1>Remaining: {incomeTotal - expenseTotal}</h1>
 
-      
+
       </div>
     </div>
   );

@@ -17,7 +17,7 @@ function Navbar() {
 
   return (
     <nav>
-      {/* <div className="shadow-md w-full  top-0 left-0 bg-[#7F3DFF]"> */}
+      <div className="shadow-md w-full  top-0 left-0 bg-[#7F3DFF]">
         <div className="md:flex items-center justify-between bg-[#7F3DFF] md:px-10 px-7">
           {" "}
           {/* Navbar */}
@@ -100,6 +100,7 @@ function Navbar() {
             </>
           )}
         </div>
+      </div>
       </div>
     </nav>
   );
