@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
+
 const API_URL = "http://localhost:5005";
 
 function AddExpense(props) {
@@ -31,8 +32,8 @@ function AddExpense(props) {
   };
 
   return (
-    <div>
-      <h3>Add Expense</h3>
+    <div className="w-96 border-2">
+      <h3>Add Expense</h3> 
 
       <form onSubmit={handleSubmit}>
         <label>Title:</label>

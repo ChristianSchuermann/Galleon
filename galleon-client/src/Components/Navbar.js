@@ -17,15 +17,15 @@ function Navbar() {
 
   return (
     <nav>
-      <div className="shadow-md w-full fixed top-0 left-0 bg-[#7F3DFF]">
+      <div className="shadow-md w-full  top-0 left-0 bg-[#7F3DFF]">
         <div className="md:flex items-center justify-between bg-[#7F3DFF] md:px-10 px-7">
           {" "}
           {/* Navbar */}
           <div
-            className="font-bold text-2x1 curser-pointer flex items-center font-[Poppins]
+            className="font-bold text-3xl curser-pointer flex items-center font-[Poppins]
         text-[#FCAC12] bg-[#7F3DFF]" //Icon & Name
           >
-            <span className="text-3x1 text-[#FCAC12] mr-1 pt-2 bg-[#7F3DFF]">
+            <span className="text-3x1 text-[#FCAC12] mr-1 pt-2">
               {" "}
               {/* Icon */}
               <ion-icon name="cash-outline"></ion-icon>
@@ -34,7 +34,7 @@ function Navbar() {
           </div>
           <div
             onClick={() => setOpen(!open)}
-            className="text-3x1 absolute right-8 top-6 curser-pointer md:hidden bg-[#7F3DFF]"
+            className="text-3x1 absolute right-8 top-6 curser-pointer md:hidden "
           >
             <ion-icon name={open ? "close" : "menu"}></ion-icon>
           </div>

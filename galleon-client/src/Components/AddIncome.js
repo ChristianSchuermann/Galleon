@@ -31,7 +31,7 @@ function AddIncome(props) {
   };
 
   return (
-    <div>
+    <div className="w-96 border-2">
       <h3>Add Income</h3>
 
       <form onSubmit={handleSubmit}>
