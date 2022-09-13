@@ -29,14 +29,20 @@ function IncomeListPage() {
 
   return (
     <div>
-      <AddIncome refreshIncome={getIncome} />
-
-      {income.map((income) => (
-        <IncomeCard key={income._id} {...income} />
-      ))}
+      {income.map((income) => {
+        return (
+          <IncomeCard
+            key={income._id}
+            incomeId={income._id}
+            incomeTitle={income.title}
+            incomeDescription={income.description}
+            incomeValue={income.income}
+            incomeCategory={income.category}
+          />
+        );
+      })}
     </div>
   );
 }
 
 export default IncomeListPage;
-
