@@ -24,12 +24,13 @@ function Signup(props) {
     const requestBody = { email, password, firstName, lastName };
 
     axios
-      .post(`${API_URL}/auth/signup`, requestBody)
+      .post(`http://localhost:5005/auth/signup`, requestBody)
       .then((response) => {
         navigate("/login");
       })
       .catch((error) => {
-        const errorDescription = error.response.data.message;
+        console.log(error);
+        const errorDescription = error?.response?.data?.message;
         setErrorMessage(errorDescription);
       });
   };
