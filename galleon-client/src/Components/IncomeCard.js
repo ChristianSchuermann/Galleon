@@ -17,6 +17,7 @@ function IncomeCard({ title, description, income, category, _id }) {
       <p className="text-lg lg:text-xl text-white">{income}</p>
 {/*       <p className="text-lg lg:text-xl text-white">{category}</p> */}
     </div>
+    <Link to="/EditIncome"><button className="bg-[#00A86B] text-[#FFFFFF] flex items-center justify-center py-2 px-4 rounded  hover:bg-red-400 duration-500 mt-2  ">Edit Income</button></Link>
     </div>
   );
 }
