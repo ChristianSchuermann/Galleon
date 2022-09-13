@@ -24,11 +24,7 @@ function Signup(props) {
     const requestBody = { email, password, firstName, lastName };
 
     axios
-<<<<<<< HEAD
       .post(`http://localhost:5005/auth/signup`, requestBody)
-=======
-      .post(API_URL, requestBody)
->>>>>>> b62d3f1b4172d9e756f915bc6280f60e0a59e873
       .then((response) => {
         navigate("/login");
       })
@@ -41,12 +37,9 @@ function Signup(props) {
 
   return (
     <div className="grid grid-cols-1 mx">
-<<<<<<< HEAD
 
- 
      
       <div className=" flex flex-col justify-center  mt-16 mb-40">
-=======
 {/*       <img
         className="w-86 h-86 z-10 ml-64 absolute "
         src={galleons}
@@ -56,9 +49,7 @@ function Signup(props) {
 
      
 
-      <div className=" flex flex-col justify-center z-20 mt-16 mb-40">
-
->>>>>>> b62d3f1b4172d9e756f915bc6280f60e0a59e873
+  {/* <div className=" flex flex-col justify-center z-20 mt-16 mb-40"> */}
         <form
           className="max-w-[500px]  max-h-[400] w-full mx-auto bg-[#7F3DFF] p-12 px-11 rounded-lg"
           onSubmit={handleSignupSubmit}
