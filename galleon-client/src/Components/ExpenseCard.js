@@ -25,7 +25,7 @@ function ExpenseCard({
     const requestBody = { title, description, category, expense };
     const storedToken = localStorage.getItem("authToken");
     axios
-      .put(`${API_URL}/api/income/${expenseId}`, requestBody, {
+      .put(`${API_URL}/api/expense/${expenseId}`, requestBody, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
