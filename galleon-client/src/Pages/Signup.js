@@ -24,7 +24,7 @@ function Signup(props) {
     const requestBody = { email, password, firstName, lastName };
 
     axios
-      .post(API_URL, requestBody)
+      .post(`http://localhost:5005/auth/signup`, requestBody)
       .then((response) => {
         navigate("/login");
       })
@@ -103,12 +103,7 @@ function Signup(props) {
           <div className="flex justify-center text-white">
             <p>Already have an account?</p>
 
-            <Link
-              className="text-white hover:text-violet-400 ml-2"
-              to={"/login"}
-            >
-              ʛ Login
-            </Link>
+            <Link className="text-white hover:text-violet-400 ml-2" to={"/login"}>ʛ Login</Link>
           </div>
         </form>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
