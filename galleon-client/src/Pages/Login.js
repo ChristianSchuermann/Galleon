@@ -39,12 +39,12 @@ function Login(props) {
     <div className="grid grid-cols-1 mx">
 
 
-
+{/* 
       <img
         className="w-86 h-86 z-10 ml-64 absolute "
         src={galleons}
         alt="Galleons"
-      />
+      /> */}
 
 
 

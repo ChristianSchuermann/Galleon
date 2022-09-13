@@ -1,20 +1,33 @@
 import React from "react";
-/* import ExpenseCard from "../Components/ExpenseCard";
-import IncomeCard from "../Components/IncomeCard"; */
+import AddExpense from "../Components/AddExpense";
+import AddIncome from "../Components/AddIncome";
+// import ExpenseCard from "../Components/ExpenseCard";
+// import IncomeCard from "../Components/IncomeCard"; 
 import Wallet from "../Components/Wallet";
-import ExpenseList from "./ExpenseList";
-import IncomeList from "./IncomeList";
+import ExpenseListPage from "./ExpenseList";
+import IncomeListPage from "./IncomeList";
 
 function Profile() {
   return (
-    <div className="">
-      <div>
+    <div>
+      <div >
         <Wallet />
-        <div>
-          <IncomeList />
-          <ExpenseList />
+      <div className="flex">
+        <div className="flex">
+          <div >
+            <AddExpense />
+            <ExpenseListPage />
+          </div>
+          <div >
+            <AddIncome />
+            <IncomeListPage />
+          </div>
         </div>
+
+        <div>
         Upcoming Chart
+        </div>
+        </div>
       </div>
     </div>
   );
