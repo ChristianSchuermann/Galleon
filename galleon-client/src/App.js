@@ -48,39 +48,7 @@ function App() {
               </IsAnon>
             }
           />
-
-          {/*   Option A: Nested Routes          */}
-
-          <Route
-            element={
-              <IsPrivate>
-                <Profile />
-              </IsPrivate>
-            }
-          >
-            <Route path="/profile/income" element={<IncomeList />} />
-            <Route path="/profile/income/:incomeID" element={<EditIncome />} />
-            <Route path="/profile/expense" element={<ExpenseList />} />
-            <Route
-              path="/profile/expense/:expenseID"
-              element={<EditExpense />}
-            />
-            <Route path="*" element={<Error />} />
-          </Route>
-
-          {/*    Option B: via the profile
-
-        <Route path="/profile/income" element={<IncomeList />} />
-        <Route path="/profile/income/:incomeID" element={<EditIncome />} />
-        <Route path="/profile/expense" element={<ExpenseList />} />
-        <Route path="/profile/expense/:expenseID" element={<EditExpense />} /> */}
-
-          {/*     Option C: directly 
-        
-        <Route path="/income" element={<IncomeList />} />
-        <Route path="/income/:incomeID" element={<EditIncome />} />
-        <Route path="/expense" element={<ExpenseList />} />
-        <Route path="/expense/expenseID" element={<EditExpense />} /> */}
+          <Route path="/profile/" element={<Profile />} />
 
           <Route path="*" element={<Error />} />
         </Routes>
