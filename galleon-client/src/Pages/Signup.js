@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import galleons from "../Images/galleons.png";
 
 const API_URL = "http://localhost:5005";
 
@@ -38,9 +37,9 @@ function Signup(props) {
   return (
     <div className="grid grid-cols-1 mx">
 
-      <img className="w-86 h-86 z-10 ml-64 absolute " src={galleons} alt="Galleons"/>
+ 
      
-      <div className=" flex flex-col justify-center z-20 mt-16 mb-40">
+      <div className=" flex flex-col justify-center  mt-16 mb-40">
         <form
           className="max-w-[500px]  max-h-[400] w-full mx-auto bg-[#7F3DFF] p-12 px-11 rounded-lg"
           onSubmit={handleSignupSubmit}
