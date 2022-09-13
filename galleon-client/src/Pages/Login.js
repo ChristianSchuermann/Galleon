@@ -40,15 +40,15 @@ function Login(props) {
   return (
     <div className="grid grid-cols-1 mx">
 
-      <img className="w-86 h-86 z-10 ml-64 absolute " src={galleons} alt="Galleons"/>
-     
+      <img className="w-86 h-86 z-10 ml-64 absolute " src={galleons} alt="Galleons" />
+
       <div className=" flex flex-col justify-center z-20 mt-32 mb-40">
         <form
           className="max-w-[500px]  max-h-[400] w-full mx-auto bg-[#7F3DFF] p-12 px-11 rounded-lg"
           onSubmit={handleLoginSubmit}
         >
           <h2 className="text-4x1 text-white font-bold text-center">
-           Log in!
+            Log in!
           </h2>
           <div className="flex flex-col text-white py-2">
             <label>E-mail:</label>
@@ -69,7 +69,7 @@ function Login(props) {
               value={password}
               onChange={handlePassword}
             />
-          </div> 
+          </div>
           <div className="w-full my-5 py-2 rounded-lg font-semibold  bg-white hover:bg-violet-400 text-[#7F3DFF]">
             <button className="w-full" type="submit">ʛ Login</button>
           </div>
