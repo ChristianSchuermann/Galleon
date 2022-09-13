@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import galleons from "../Images/galleons.png";
 
 const API_URL = "http://localhost:5005";
 
@@ -25,12 +24,13 @@ function Signup(props) {
     const requestBody = { email, password, firstName, lastName };
 
     axios
-      .post(`${API_URL}/auth/signup`, requestBody)
+      .post(`http://localhost:5005/auth/signup`, requestBody)
       .then((response) => {
         navigate("/login");
       })
       .catch((error) => {
-        const errorDescription = error.response.data.message;
+        console.log(error);
+        const errorDescription = error?.response?.data?.message;
         setErrorMessage(errorDescription);
       });
   };
@@ -43,7 +43,12 @@ function Signup(props) {
         alt="Galleons"
       />
 
+
+     
+      <div className=" flex flex-col justify-center  mt-16 mb-40">
+
       <div className=" flex flex-col justify-center z-20 mt-16 mb-40">
+
         <form
           className="max-w-[500px]  max-h-[400] w-full mx-auto bg-[#7F3DFF] p-12 px-11 rounded-lg"
           onSubmit={handleSignupSubmit}

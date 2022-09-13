@@ -32,10 +32,14 @@ function Navbar() {
             </span>
             ʛalleon
           </div>
+
+          <div onClick={() => setOpen(!open)}  className="text-3xl absolute right-8 top-6 curser-pointer md:hidden ">
+
           <div
             onClick={() => setOpen(!open)}
             className="text-3x1 absolute right-8 top-6 curser-pointer md:hidden "
           >
+
             <ion-icon name={open ? "close" : "menu"}></ion-icon>
           </div>
           {isLoggedIn && (
