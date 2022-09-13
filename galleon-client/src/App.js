@@ -8,17 +8,17 @@ import Signup from "./Pages/Signup";
 import Login from "./Pages/Login";
 import Profile from "./Pages/Profile";
 import Error from "./Pages/Error";
-import IncomeList from "./Pages/IncomeList";
+/* import IncomeList from "./Pages/IncomeList";
 import ExpenseList from "./Pages/ExpenseList";
 import EditExpense from "./Pages/EditExpense";
-import EditIncome from "./Pages/EditIncome";
+import EditIncome from "./Pages/EditIncome"; */
 
 /* Import the components */
 
 import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
 import IsAnon from "./Components/IsAnon";
-import IsPrivate from "./Components/IsPrivate";
+/* import IsPrivate from "./Components/IsPrivate"; */
 
 function App() {
   return (

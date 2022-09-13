@@ -1,39 +1,109 @@
-import { Link } from "react-router-dom";
-import expenseIcon from "../Images/icons8-shopping-50.png";
+import { useState } from "react";
+import axios from "axios";
+
+const API_URL = "http://localhost:5005";
 
 // We are deconstructing props object directly in the parentheses of the function
 function ExpenseCard({
-  title,
-  description,
-  expense,
-  category,
-  _id,
-  User,
-  firstName,
+  expenseTitle,
+  expenseDescription,
+  expenseValue,
+  expenseCategory,
+  expenseId,
 }) {
-  console.log("data", { User, title, description, expense, category, _id });
-  return (
-    <>
-      <div className="box-border py-10 w-60  rounded-3xl flex items-center justify-center bg-[#FD3C4A] ">
-        <div>
-          <img className="pr-5" src={expenseIcon} alt="Expense Icon" />
-        </div>
-        <div>
-          <Link to={`/profile/expense/${_id}`}>
-            <h3 className="text-xl lg:text-3xl text-white">{title}</h3>
-          </Link>
-          <p className="text-lg lg:text-xl text-white">{description}</p>
-          <p className="text-lg lg:text-xl text-white">{expense}</p>
-          <p className="text-lg lg:text-xl text-white">{category}</p>
-        </div>
-      </div>
+  const [editDisabled, setEditDisabled] = useState(true);
 
-      <Link to={`/profile/expense/${_id}`}>
-        <button className="bg-[#FD3C4A] text-[#FFFFFF] flex items-center justify-center py-2 px-4 rounded  hover:bg-red-400 duration-500 mt-2  ">
-          Edit Expense
-        </button>
-      </Link>
-    </>
+  const [title, setTitle] = useState(expenseTitle);
+  const [description, setDescription] = useState(expenseDescription);
+  const [expense, setExpense] = useState(expenseValue);
+  const [category, setCategory] = useState(expenseCategory);
+
+  const submitExpense = (e) => {
+    e.preventDefault();
+    setEditDisabled(true);
+
+    const requestBody = { title, description, category, expense };
+    const storedToken = localStorage.getItem("authToken");
+    axios
+      .put(`${API_URL}/api/income/${expenseId}`, requestBody, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then((response) => {
+        // the api should return the updated object (income)
+        const updatedExpense = response.data;
+        setTitle(updatedExpense.title);
+        setDescription(updatedExpense.description);
+        setCategory(updatedExpense.category);
+        setExpense(updatedExpense.expense);
+        console.log("response: ", response.status);
+        console.log("updated income: ", response.data);
+      })
+      .catch((error) => console.log(error));
+  };
+
+  const deleteExpense = () => {
+    const storedToken = localStorage.getItem("authToken");
+    axios
+      .delete(`${API_URL}/api/expense/${expenseId}`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then(() => {})
+      .catch((err) => console.log(err));
+  };
+
+  const toggleEdit = (e) => {
+    e.preventDefault();
+    setEditDisabled(false);
+  };
+
+  const changeTitle = (e) => {
+    e.preventDefault();
+    setTitle(e.target.value);
+  };
+
+  const changeDescription = (e) => {
+    e.preventDefault();
+    setDescription(e.target.value);
+  };
+
+  const changeExpense = (e) => {
+    e.preventDefault();
+    setExpense(e.target.value);
+  };
+
+  const changeCategory = (e) => {
+    e.preventDefault();
+    setCategory(e.target.value);
+  };
+
+  return (
+    <div className="box-border py-10 w-60  rounded-3xl flex items-center justify-center">
+      <form>
+        <input disabled={editDisabled} value={title} onChange={changeTitle} />
+        <input
+          disabled={editDisabled}
+          value={description}
+          onChange={changeDescription}
+        />
+        <input
+          disabled={editDisabled}
+          value={expense}
+          onChange={changeExpense}
+        />
+        <input
+          disabled={editDisabled}
+          value={category}
+          onChange={changeCategory}
+        />
+      </form>
+      {editDisabled ? <button onClick={toggleEdit}>Edit Expense</button> : null}
+      {editDisabled ? null : (
+        <button onClick={deleteExpense}>Delete Expense</button>
+      )}
+      {editDisabled ? null : (
+        <button onClick={submitExpense}>Submit Expense</button>
+      )}
+    </div>
   );
 }
 
