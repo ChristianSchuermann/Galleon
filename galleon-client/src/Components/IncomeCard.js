@@ -41,6 +41,16 @@ function IncomeCard({
       .catch((error) => console.log(error));
   };
 
+  const deleteIncome = () => {
+    const storedToken = localStorage.getItem("authToken");
+    axios
+      .delete(`${API_URL}/api/income/${incomeId}`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then(() => {})
+      .catch((err) => console.log(err));
+  };
+
   const toggleEdit = (e) => {
     e.preventDefault();
     setEditDisabled(false);
@@ -83,6 +93,9 @@ function IncomeCard({
         />
       </form>
       {editDisabled ? <button onClick={toggleEdit}>Edit Income</button> : null}
+      {editDisabled ? null : (
+        <button onClick={deleteIncome}>Delete Income</button>
+      )}
       {editDisabled ? null : (
         <button onClick={submitIncome}>Submit Income</button>
       )}

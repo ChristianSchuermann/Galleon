@@ -30,10 +30,18 @@ function ExpenseListPage() {
   return (
     <div>
       <AddExpense refreshExpense={getExpense} />
-
-      {expense.map((expense) => (
-        <ExpenseCard key={expense._id} {...expense} />
-      ))}
+      {expense.map((expense) => {
+        return (
+          <ExpenseCard
+            key={expense._id}
+            expenseId={expense._id}
+            expenseTitle={expense.title}
+            expenseDescription={expense.description}
+            expenseValue={expense.income}
+            expenseCategory={expense.category}
+          />
+        );
+      })}
     </div>
   );
 }
