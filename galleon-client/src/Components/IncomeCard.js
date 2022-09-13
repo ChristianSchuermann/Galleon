@@ -1,23 +1,91 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
 
-import incomeIcon from "../Images/income-icon-1.jpeg";
+const API_URL = "http://localhost:5005";
 
 // We are deconstructing props object directly in the parentheses of the function
-function IncomeCard({ title, description, income, category, _id }) {
+function IncomeCard({
+  incomeTitle,
+  incomeDescription,
+  incomeValue,
+  incomeCategory,
+  incomeId,
+}) {
+  const [editDisabled, setEditDisabled] = useState(true);
+
+  const [title, setTitle] = useState(incomeTitle);
+  const [description, setDescription] = useState(incomeDescription);
+  const [income, setIncome] = useState(incomeValue);
+  const [category, setCategory] = useState(incomeCategory);
+
+  const submitIncome = (e) => {
+    e.preventDefault();
+    setEditDisabled(true);
+
+    const requestBody = { title, description, category, income };
+    const storedToken = localStorage.getItem("authToken");
+    axios
+      .put(`${API_URL}/api/income/${incomeId}`, requestBody, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then((response) => {
+        // the api should return the updated object (income)
+        const updatedIncome = response.data;
+        setTitle(updatedIncome.title);
+        setDescription(updatedIncome.description);
+        setCategory(updatedIncome.category);
+        setIncome(updatedIncome.income);
+        console.log("response: ", response.status);
+        console.log("updated income: ", response.data);
+      })
+      .catch((error) => console.log(error));
+  };
+
+  const toggleEdit = (e) => {
+    e.preventDefault();
+    setEditDisabled(false);
+  };
+
+  const changeTitle = (e) => {
+    e.preventDefault();
+    setTitle(e.target.value);
+  };
+
+  const changeDescription = (e) => {
+    e.preventDefault();
+    setDescription(e.target.value);
+  };
+
+  const changeIncome = (e) => {
+    e.preventDefault();
+    setIncome(e.target.value);
+  };
+
+  const changeCategory = (e) => {
+    e.preventDefault();
+    setCategory(e.target.value);
+  };
+
   return (
-    <div className="box-border py-10 w-60  rounded-3xl flex items-center justify-center bg-[#00A86B] ">
-    <div>
-      <img className="pr-5" src={incomeIcon}  alt="Income Icon"/>
-    </div>
-    <div>
-      <Link to={`/profile/income/${_id}`}>
-        <h3 className="text-xl lg:text-3xl text-white">{title}</h3>
-      </Link>
-      <p className="text-lg lg:text-xl text-white">{description} </p>
-      <p className="text-lg lg:text-xl text-white">{income}</p>
-{/*       <p className="text-lg lg:text-xl text-white">{category}</p> */}
-    </div>
-    <Link to="/EditIncome"><button className="bg-[#00A86B] text-[#FFFFFF] flex items-center justify-center py-2 px-4 rounded  hover:bg-red-400 duration-500 mt-2  ">Edit Income</button></Link>
+    <div className="box-border py-10 w-60  rounded-3xl flex items-center justify-center">
+      <form>
+        <input disabled={editDisabled} value={title} onChange={changeTitle} />
+        <input
+          disabled={editDisabled}
+          value={description}
+          onChange={changeDescription}
+        />
+        <input disabled={editDisabled} value={income} onChange={changeIncome} />
+        <input
+          disabled={editDisabled}
+          value={category}
+          onChange={changeCategory}
+        />
+      </form>
+      {editDisabled ? <button onClick={toggleEdit}>Edit Income</button> : null}
+      {editDisabled ? null : (
+        <button onClick={submitIncome}>Submit Income</button>
+      )}
     </div>
   );
 }
