@@ -15,7 +15,7 @@ function IncomeCard({ title, description, income, category, _id }) {
       </Link>
       <p className="text-lg lg:text-xl text-white">{description} </p>
       <p className="text-lg lg:text-xl text-white">{income}</p>
-      <p className="text-lg lg:text-xl text-white">{category}</p>
+{/*       <p className="text-lg lg:text-xl text-white">{category}</p> */}
     </div>
     </div>
   );
