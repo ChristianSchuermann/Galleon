@@ -8,8 +8,10 @@ import IncomeListPage from "./IncomeList";
 function Profile() {
   return (
     <div>
+
       <div>
         <Wallet />
+
         <div className="flex">
           <div className="flex">
             <div>

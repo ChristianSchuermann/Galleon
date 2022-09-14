@@ -45,7 +45,7 @@ function ExpenseCard({
       .delete(`${API_URL}/api/expense/${expenseId}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
-      .then(() => {})
+      .then(() => { })
       .catch((err) => console.log(err));
   };
 
@@ -71,36 +71,47 @@ function ExpenseCard({
 
 
   return (
-    <div className="box-border py-10 w-60  rounded-3xl flex items-center justify-center">
-      <form>
-        <input disabled={editDisabled} value={title} onChange={changeTitle} />
+    <>
+      <div className="w-52 m-5  border-2 border-red-400  ">
+        <form>
+          <div className="flex">
+            <input  
+              size="16" disabled={editDisabled} value={title} onChange={changeTitle} />
 
-        <input
-          disabled={editDisabled}
-          value={expense}
-          onChange={changeExpense}
-        />
-        <Dropdown
-          disabled={editDisabled}
-          placeholder={category}
-          options={["Rent", "Food", "Bills", "Shopping", "Transportation", "Entertainment", "other..."]}
-          value={category}
-          onChange={(value) => changeCategory(value)}
-          onSelect={(value) => changeCategory(value)}
-          onClose={(closedBySelection) =>
-            console.log("closedBySelection?:", closedBySelection)
-          }
-          onOpen={() => console.log("open!")}
-        />
-      </form>
-      {editDisabled ? <button onClick={toggleEdit}>Edit Expense</button> : null}
-      {editDisabled ? null : (
-        <button onClick={deleteExpense}>Delete Expense</button>
-      )}
-      {editDisabled ? null : (
-        <button onClick={submitExpense}>Submit Expense</button>
-      )}
-    </div>
+            <input
+              maxlength="6" 
+              size="6"
+              disabled={editDisabled}
+              value={expense}
+              onChange={changeExpense}
+            />
+          </div>
+
+          <Dropdown
+            disabled={editDisabled}
+            placeholder={category}
+            options={["Rent", "Food", "Bills", "Shopping", "Transportation", "Entertainment", "other..."]}
+            value={category}
+            onChange={(value) => changeCategory(value)}
+            onSelect={(value) => changeCategory(value)}
+            onClose={(closedBySelection) =>
+              console.log("closedBySelection?:", closedBySelection)
+            }
+            onOpen={() => console.log("open!")}
+          />
+        </form>
+        {editDisabled ? <button onClick={toggleEdit}>Edit Expense</button> : null}
+        <div className="flex">
+        {editDisabled ? null : (
+          <button className="btn-red" onClick={submitExpense}>Submit Expense</button>
+
+        )}
+        {editDisabled ? null : (
+          <button className="btn-green" onClick={deleteExpense}>Delete Expense</button>
+        )}
+        </div>
+      </div>
+    </>
   );
 }
 

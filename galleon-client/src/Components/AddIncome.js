@@ -29,11 +29,11 @@ function AddIncome(props) {
   };
 
   return (
-    <div className="w-96 border-2">
-      <h3>Add Income</h3>
+    <div className="w-52 border-2 border-green-400 flex flex-col m-5">
+      <h3 className="bg-[#00A86B] py-3 text-white font-bold flex justify-center">Add Income</h3>
 
       <form onSubmit={handleSubmit}>
-        <label>Title:</label>
+        <label className="text-lg">Title:</label>
         <input
           type="text"
           name="title"
@@ -41,7 +41,7 @@ function AddIncome(props) {
           onChange={(e) => setTitle(e.target.value)}
         />
 
-        <label>Category:</label>
+       
         <Dropdown
           placeholder="Select a category"
           options={["Rent", "Food", "Bills", "Shopping", "Transportation", "Entertainment", "other..."]}
@@ -53,15 +53,16 @@ function AddIncome(props) {
           }
           onOpen={() => console.log("open!")}
         />
-        <label>Amount:</label>
+        <label className="text-lg">Amount:</label>
         <input
           type="number"
           name="amount"
           value={income}
           onChange={(e) => setIncome(e.target.value)}
         />
-        <button type="submit"> ʛ Submit</button>
+        
       </form>
+      <button className="btn-green w-52  justify-center  py-3 font-bold text-lg"  type="submit"> ʛ Submit</button>
     </div>
   );
 }
