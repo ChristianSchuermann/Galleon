@@ -35,8 +35,6 @@ function IncomeCard({
         setDescription(updatedIncome.description);
         setCategory(updatedIncome.category);
         setIncome(updatedIncome.income);
-        console.log("response: ", response.status);
-        console.log("updated income: ", response.data);
       })
       .catch((error) => console.log(error));
   };

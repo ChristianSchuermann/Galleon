@@ -35,8 +35,6 @@ function ExpenseCard({
         setDescription(updatedExpense.description);
         setCategory(updatedExpense.category);
         setExpense(updatedExpense.expense);
-        console.log("response: ", response.status);
-        console.log("updated income: ", response.data);
       })
       .catch((error) => console.log(error));
   };

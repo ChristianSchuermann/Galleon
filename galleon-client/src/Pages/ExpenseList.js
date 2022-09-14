@@ -37,7 +37,7 @@ function ExpenseListPage() {
             expenseId={expense._id}
             expenseTitle={expense.title}
             expenseDescription={expense.description}
-            expenseValue={expense.income}
+            expenseValue={expense.expense}
             expenseCategory={expense.category}
           />
         );
