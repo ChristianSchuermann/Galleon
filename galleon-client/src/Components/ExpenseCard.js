@@ -29,7 +29,7 @@ function ExpenseCard({
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
-        // the api should return the updated object (income)
+        // the api should return the updated object (expense))
         const updatedExpense = response.data;
         setTitle(updatedExpense.title);
         setDescription(updatedExpense.description);

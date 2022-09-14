@@ -103,7 +103,7 @@ function Signup(props) {
         {errorMessage && <p className="error-message">{errorMessage}</p>}
       </div>
     </div>
-    </div>
+ 
   );
 }
 
