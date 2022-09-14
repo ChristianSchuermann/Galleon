@@ -4,9 +4,6 @@ import axios from "axios";
 import IncomeCard from "../Components/IncomeCard";
 import AddIncome from "../Components/AddIncome";
 
-import { Dropdown, Selection } from "react-dropdown-now";
-import "react-dropdown-now/style.css";
-
 const API_URL = "http://localhost:5005";
 
 function IncomeListPage() {
@@ -39,7 +36,6 @@ function IncomeListPage() {
             key={income._id}
             incomeId={income._id}
             incomeTitle={income.title}
-            incomeDescription={income.description}
             incomeValue={income.income}
             incomeCategory={income.category}
           />
