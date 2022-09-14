@@ -42,11 +42,16 @@ function Wallet({ amount, max }) {
   });
 
   const classNames = [];
-  if (expenseTotal > incomeTotal) {
-    classNames.push("bg-red", "bg-opacity-10");
-  } else {
-    classNames.push("bg-white");
-  }
+  // const ratio = expenseTotal  / incomeTotal;
+  // if (ratio > 0.75) {
+  //   classNames.push("bg-[#FD3C4A]", "bg-opacity-10");
+  // } 
+  // if ( 0.5 < ratio < 0.75) {
+  //   classNames.push("bg-[#FCAC12]", "bg-opacity-10");
+  // } 
+  // else {
+  //   classNames.push("bg-[#00A86B]", "bg-opacity-10");
+  // }
 
   return (
     <div className={classNames.join(" ")}>
@@ -62,12 +67,5 @@ function Wallet({ amount, max }) {
     </div>
   );
 }
-
-// function getProgressBarVariant(amount, max) {
-//   const ratio = amount / max;
-//   if (ratio < 0.5) return "bg-[#FCAC12]";
-//   if (ratio < 0.75) return "bg-[#FD3C4A]";
-//   return "bg-[#00A86B]";
-// }
 
 export default Wallet;
