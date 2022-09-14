@@ -44,8 +44,8 @@ function AddIncome(props) {
         <label>Category:</label>
         <Dropdown
           placeholder="Select a category"
-          options={["Food", "Rent", "Car"]}
-          value="one"
+          options={["Rent", "Food", "Bills", "Shopping", "Transportation", "Entertainment", "other..."]}
+          value={category}
           onChange={(value) => SetCategory(value.value)}
           onSelect={(value) => SetCategory(value.value)} // always fires once a selection happens even if there is no change
           onClose={(closedBySelection) =>

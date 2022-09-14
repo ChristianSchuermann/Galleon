@@ -17,7 +17,7 @@ function ExpenseCard({
 
   const [title, setTitle] = useState(expenseTitle);
   const [expense, setExpense] = useState(expenseValue);
-  const [category, setCategory] = useState(expenseCategory);
+  const [category, setCategory] = useState([expenseCategory]);
 
   const submitExpense = (e) => {
     e.preventDefault();
@@ -65,9 +65,10 @@ function ExpenseCard({
   };
 
   const changeCategory = (e) => {
-    e.preventDefault();
-    setCategory(e.target.value);
+
+    setCategory(e.value);
   };
+
 
   return (
     <div className="box-border py-10 w-60  rounded-3xl flex items-center justify-center">
@@ -82,10 +83,10 @@ function ExpenseCard({
         <Dropdown
           disabled={editDisabled}
           placeholder={category}
-          options={["Food", "Rent", "Car"]}
-          value="one"
-          // onChange={(value) => changeCategory(value.value)}
-          onSelect={(value) => changeCategory(value.value)} // always fires once a selection happens even if there is no change
+          options={["Rent", "Food", "Bills", "Shopping", "Transportation", "Entertainment", "other..."]}
+          value={category}
+          onChange={(value) => changeCategory(value)}
+          onSelect={(value) => changeCategory(value)}
           onClose={(closedBySelection) =>
             console.log("closedBySelection?:", closedBySelection)
           }

@@ -65,8 +65,7 @@ function IncomeCard({
   };
 
   const changeCategory = (e) => {
-   /*  e.preventDefault(); */
-    setCategory(e.target.value);
+    setCategory(e.value);
   };
 
   return (
@@ -75,13 +74,14 @@ function IncomeCard({
         <input disabled={editDisabled} value={title} onChange={changeTitle} />
 
         <input disabled={editDisabled} value={income} onChange={changeIncome} />
+
         <Dropdown
           disabled={editDisabled}
           placeholder={category}
-          options={["Food", "Rent", "Car"]}
+          options={["Rent", "Food", "Bills", "Shopping", "Transportation", "Entertainment", "other..."]}
           value={category}
-          onChange={(value) => changeCategory(value.value)}
-          onSelect={(value) => changeCategory(value.value)} // always fires once a selection happens even if there is no change
+          onChange={(value) => changeCategory(value)}
+          onSelect={(value) => changeCategory(value)}
           onClose={(closedBySelection) =>
             console.log("closedBySelection?:", closedBySelection)
           }
