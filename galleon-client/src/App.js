@@ -18,7 +18,7 @@ import EditIncome from "./Pages/EditIncome"; */
 import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
 import IsAnon from "./Components/IsAnon";
-/* import IsPrivate from "./Components/IsPrivate"; */
+import IsPrivate from "./Components/IsPrivate";
 
 function App() {
   return (
@@ -48,7 +48,7 @@ function App() {
               </IsAnon>
             }
           />
-          <Route path="/profile/" element={<isPrivate><Profile /></isPrivate>} />
+          <Route path="/profile/" element={<IsPrivate><Profile /></IsPrivate>} />
 
           <Route path="*" element={<Error />} />
         </Routes>
