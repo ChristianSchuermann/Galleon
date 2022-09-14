@@ -41,7 +41,7 @@ function Wallet({ amount, max }) {
     incomeTotal += _income.income;
   });
 
-  // const classNames = [];
+  const classNames = [];
   // const ratio = expenseTotal  / incomeTotal;
   // if (ratio > 0.75) {
   //   classNames.push("bg-[#FD3C4A]", "bg-opacity-10");
