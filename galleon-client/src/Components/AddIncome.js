@@ -1,5 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
+import { Dropdown, Selection } from "react-dropdown-now";
+import "react-dropdown-now/style.css";
 
 const API_URL = "http://localhost:5005";
 
@@ -40,7 +42,6 @@ function AddIncome(props) {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-
         <label>Description:</label>
         <textarea
           type="text"
@@ -48,16 +49,18 @@ function AddIncome(props) {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-
-        {/* should be a drop down menu to chose predefined categories from (f.e. "food", "rent", "vet", ...) */}
         <label>Category:</label>
-        <textarea // <---- maybe this one has to change?
-          type="text"
-          name="category"
-          value={category}
-          onChange={(e) => SetCategory(e.target.value)}
+        <Dropdown
+          placeholder="Select a category"
+          options={["Food", "Rent", "Car"]}
+          value="one"
+          onChange={(value) => SetCategory(value.value)}
+          onSelect={(value) => SetCategory(value.value)} // always fires once a selection happens even if there is no change
+          onClose={(closedBySelection) =>
+            console.log("closedBySelection?:", closedBySelection)
+          }
+          onOpen={() => console.log("open!")}
         />
-
         <label>Amount:</label>
         <input
           type="number"
@@ -65,7 +68,6 @@ function AddIncome(props) {
           value={income}
           onChange={(e) => setIncome(e.target.value)}
         />
-
         <button type="submit"> ʛ Submit</button>
       </form>
     </div>
