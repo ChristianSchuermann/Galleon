@@ -15,11 +15,9 @@ function Profile() {
       <div className="flex">
         <div className="flex">
           <div >
-            <AddExpense />
             <ExpenseListPage />
           </div>
           <div >
-            <AddIncome />
             <IncomeListPage />
           </div>
         </div>
