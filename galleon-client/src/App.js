@@ -8,10 +8,6 @@ import Signup from "./Pages/Signup";
 import Login from "./Pages/Login";
 import Profile from "./Pages/Profile";
 import Error from "./Pages/Error";
-/* import IncomeList from "./Pages/IncomeList";
-import ExpenseList from "./Pages/ExpenseList";
-import EditExpense from "./Pages/EditExpense";
-import EditIncome from "./Pages/EditIncome"; */
 
 /* Import the components */
 
@@ -48,7 +44,7 @@ function App() {
               </IsAnon>
             }
           />
-          <Route path="/profile/" element={<IsPrivate><Profile /></IsPrivate>} />
+          <Route path="/profile" element={<IsPrivate><Profile /></IsPrivate>} />
 
           <Route path="*" element={<Error />} />
         </Routes>
