@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+body {
+  margin: 0;
+  padding: 0;
+  
+}
+
+.btn-red {
+  background-color: #FD3C4A;
+}
+
+.btn-green {
+  background-color: #00A86B;
+}
+
+.circle {
+  height: 200px;
+  width: 200px;
+  background-color: #FCAC12;
+  border-radius: 50%;
+  display: inline-block;
+}
