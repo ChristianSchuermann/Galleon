@@ -60,9 +60,9 @@ function AddIncome(props) {
           value={income}
           onChange={(e) => setIncome(e.target.value)}
         />
-        
+        <button className="btn-green w-52  justify-center  py-3 font-bold text-lg"  type="submit"> ʛ Submit</button>
       </form>
-      <button className="btn-green w-52  justify-center  py-3 font-bold text-lg"  type="submit"> ʛ Submit</button>
+      
     </div>
   );
 }
