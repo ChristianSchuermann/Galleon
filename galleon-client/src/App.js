@@ -8,17 +8,13 @@ import Signup from "./Pages/Signup";
 import Login from "./Pages/Login";
 import Profile from "./Pages/Profile";
 import Error from "./Pages/Error";
-/* import IncomeList from "./Pages/IncomeList";
-import ExpenseList from "./Pages/ExpenseList";
-import EditExpense from "./Pages/EditExpense";
-import EditIncome from "./Pages/EditIncome"; */
 
 /* Import the components */
 
 import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
 import IsAnon from "./Components/IsAnon";
-/* import IsPrivate from "./Components/IsPrivate"; */
+import IsPrivate from "./Components/IsPrivate";
 
 function App() {
   return (
@@ -48,7 +44,7 @@ function App() {
               </IsAnon>
             }
           />
-          <Route path="/profile/" element={<isPrivate><Profile /></isPrivate>} />
+          <Route path="/profile" element={<IsPrivate><Profile /></IsPrivate>} />
 
           <Route path="*" element={<Error />} />
         </Routes>

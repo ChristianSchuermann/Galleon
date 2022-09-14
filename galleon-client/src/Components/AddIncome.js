@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { Dropdown } from "react-dropdown-now";
-import "react-dropdown-now/style.css";
+
 
 const API_URL = "http://localhost:5005";
 
