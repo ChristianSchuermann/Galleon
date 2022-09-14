@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-import { Dropdown, Selection } from "react-dropdown-now";
+import { Dropdown } from "react-dropdown-now";
 
 const API_URL = "http://localhost:5005";
 
@@ -16,7 +16,6 @@ function ExpenseCard({
   const [editDisabled, setEditDisabled] = useState(true);
 
   const [title, setTitle] = useState(expenseTitle);
-  const [description, setDescription] = useState(expenseDescription);
   const [expense, setExpense] = useState(expenseValue);
   const [category, setCategory] = useState(expenseCategory);
 
@@ -24,7 +23,7 @@ function ExpenseCard({
     e.preventDefault();
     setEditDisabled(true);
 
-    const requestBody = { title, description, category, expense };
+    const requestBody = { title, category, expense };
     const storedToken = localStorage.getItem("authToken");
     axios
       .put(`${API_URL}/api/expense/${expenseId}`, requestBody, {
@@ -34,7 +33,6 @@ function ExpenseCard({
         // the api should return the updated object (expense))
         const updatedExpense = response.data;
         setTitle(updatedExpense.title);
-        setDescription(updatedExpense.description);
         setCategory(updatedExpense.category);
         setExpense(updatedExpense.expense);
       })
@@ -61,11 +59,6 @@ function ExpenseCard({
     setTitle(e.target.value);
   };
 
-  const changeDescription = (e) => {
-    e.preventDefault();
-    setDescription(e.target.value);
-  };
-
   const changeExpense = (e) => {
     e.preventDefault();
     setExpense(e.target.value);
@@ -80,11 +73,7 @@ function ExpenseCard({
     <div className="box-border py-10 w-60  rounded-3xl flex items-center justify-center">
       <form>
         <input disabled={editDisabled} value={title} onChange={changeTitle} />
-        <input
-          disabled={editDisabled}
-          value={description}
-          onChange={changeDescription}
-        />
+
         <input
           disabled={editDisabled}
           value={expense}

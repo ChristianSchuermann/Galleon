@@ -1,20 +1,19 @@
 import { useState } from "react";
 import axios from "axios";
-import { Dropdown, Selection } from "react-dropdown-now";
+import { Dropdown } from "react-dropdown-now";
 import "react-dropdown-now/style.css";
 
 const API_URL = "http://localhost:5005";
 
 function AddIncome(props) {
   const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
   const [income, setIncome] = useState(0);
   const [category, SetCategory] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const requestBody = { title, description, category, income };
+    const requestBody = { title, category, income };
 
     const storedToken = localStorage.getItem("authToken");
 
@@ -24,7 +23,6 @@ function AddIncome(props) {
       })
       .then((response) => {
         setTitle("");
-        setDescription("");
         setIncome(0);
       })
       .catch((error) => console.log(error));
@@ -42,13 +40,7 @@ function AddIncome(props) {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <label>Description:</label>
-        <textarea
-          type="text"
-          name="description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
+
         <label>Category:</label>
         <Dropdown
           placeholder="Select a category"

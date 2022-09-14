@@ -1,20 +1,19 @@
 import { useState } from "react";
 import axios from "axios";
-import { Dropdown, Selection } from "react-dropdown-now";
+import { Dropdown } from "react-dropdown-now";
 import "react-dropdown-now/style.css";
 
 const API_URL = "http://localhost:5005";
 
 function AddExpense(props) {
   const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
   const [expense, setExpense] = useState(0);
   const [category, SetCategory] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const requestBody = { title, description, category, expense };
+    const requestBody = { title, category, expense };
 
     const storedToken = localStorage.getItem("authToken");
 
@@ -24,7 +23,6 @@ function AddExpense(props) {
       })
       .then((response) => {
         setTitle("");
-        setDescription("");
         setExpense(0);
       })
       .catch((error) => console.log(error));
@@ -43,18 +41,10 @@ function AddExpense(props) {
           onChange={(e) => setTitle(e.target.value)}
         />
 
-        <label>Description:</label>
-        <textarea
-          type="text"
-          name="description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-
         <Dropdown
           placeholder="Select a category"
           options={["Food", "Rent", "Car"]}
-          value="one"
+          value={category}
           onChange={(value) => SetCategory(value.value)}
           onSelect={(value) => SetCategory(value.value)} // always fires once a selection happens even if there is no change
           onClose={(closedBySelection) =>

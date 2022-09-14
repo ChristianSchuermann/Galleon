@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-import { Dropdown, Selection } from "react-dropdown-now";
+import { Dropdown } from "react-dropdown-now";
 
 const API_URL = "http://localhost:5005";
 
@@ -16,7 +16,6 @@ function IncomeCard({
   const [editDisabled, setEditDisabled] = useState(true);
 
   const [title, setTitle] = useState(incomeTitle);
-  const [description, setDescription] = useState(incomeDescription);
   const [income, setIncome] = useState(incomeValue);
   const [category, setCategory] = useState(incomeCategory);
 
@@ -24,7 +23,7 @@ function IncomeCard({
     e.preventDefault();
     setEditDisabled(true);
 
-    const requestBody = { title, description, category, income };
+    const requestBody = { title, category, income };
     const storedToken = localStorage.getItem("authToken");
     axios
       .put(`${API_URL}/api/income/${incomeId}`, requestBody, {
@@ -34,7 +33,6 @@ function IncomeCard({
         // the api should return the updated object (income)
         const updatedIncome = response.data;
         setTitle(updatedIncome.title);
-        setDescription(updatedIncome.description);
         setCategory(updatedIncome.category);
         setIncome(updatedIncome.income);
       })
@@ -61,18 +59,13 @@ function IncomeCard({
     setTitle(e.target.value);
   };
 
-  const changeDescription = (e) => {
-    e.preventDefault();
-    setDescription(e.target.value);
-  };
-
   const changeIncome = (e) => {
     e.preventDefault();
     setIncome(e.target.value);
   };
 
   const changeCategory = (e) => {
-    e.preventDefault();
+   /*  e.preventDefault(); */
     setCategory(e.target.value);
   };
 
@@ -80,19 +73,15 @@ function IncomeCard({
     <div className="box-border py-10 w-60  rounded-3xl flex items-center justify-center">
       <form>
         <input disabled={editDisabled} value={title} onChange={changeTitle} />
-        <input
-          disabled={editDisabled}
-          value={description}
-          onChange={changeDescription}
-        />
+
         <input disabled={editDisabled} value={income} onChange={changeIncome} />
         <Dropdown
           disabled={editDisabled}
           placeholder={category}
           options={["Food", "Rent", "Car"]}
-          value="one"
+          value={category}
           onChange={(value) => changeCategory(value.value)}
-          // onSelect={(value) => changeCategory(value.value)} // always fires once a selection happens even if there is no change
+          onSelect={(value) => changeCategory(value.value)} // always fires once a selection happens even if there is no change
           onClose={(closedBySelection) =>
             console.log("closedBySelection?:", closedBySelection)
           }
