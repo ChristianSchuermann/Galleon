@@ -1,6 +1,48 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
+
+const API_URL = "http://localhost:5005";
+
 function Wallet({ amount, max }) {
+  let expenseTotal = 0;
+  let incomeTotal = 0;
+
+  const [walletExpense, setWalletExpense] = useState([]);
+  const [walletIncome, setWalletIncome] = useState([]);
+
+  const getExpense = () => {
+    const storedToken = localStorage.getItem("authToken");
+
+    // Send the token through the request "Authorization" Headers
+    axios
+      .get(`${API_URL}/api/expense`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then((response) => setWalletExpense(response.data))
+      .catch((error) => console.log(error));
+
+      axios
+      .get(`${API_URL}/api/income`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then((response) => setWalletIncome(response.data))
+      .catch((error) => console.log(error));
+  };
+
+  useEffect(() => {
+    getExpense();
+  }, []);
+
+  walletExpense.map((_expense) => {
+    expenseTotal += _expense.expense;
+  });
+
+  walletIncome.map((_income) => {
+    incomeTotal += _income.income;
+  });
+
   const classNames = [];
-  if (amount > max) {
+  if (expenseTotal > incomeTotal) {
     classNames.push("bg-red", "bg-opacity-10");
   } else {
     classNames.push("bg-white");
@@ -8,31 +50,24 @@ function Wallet({ amount, max }) {
 
   return (
     <div className={classNames.join(" ")}>
-      <div className="flex items-center justify-center">
-        <div className="py-10 w-96 border-2 flex items-center flex-col">
-          <div>
-            <div className="pb-2">Your Wallet:</div>
-          </div>
-          <div className="w-6/12 rounded-full ">
-            <div
-              className="bg-gray-200 text-xs font-medium text-blue-100 text-center py-2 leading-none rounded-full"
-              variant={getProgressBarVariant(amount, max)}
-              min={0}
-              max={max}
-              now={amount}
-            ></div>
-          </div>
-        </div>
+      <div className="border-2 py-10 w-60  rounded-3xl bg-[#FCAC12]">
+
+
+      <h1>Your total income:  {incomeTotal}</h1>
+      <h1>Your total expense:  {expenseTotal}</h1>
+      <h1>Remaining: {incomeTotal - expenseTotal}</h1>
+
+
       </div>
     </div>
   );
 }
 
-function getProgressBarVariant(amount, max) {
-  const ratio = amount / max;
-  if (ratio < 0.5) return "bg-[#FCAC12]";
-  if (ratio < 0.75) return "bg-[#FD3C4A]";
-  return "bg-[#00A86B]";
-}
+// function getProgressBarVariant(amount, max) {
+//   const ratio = amount / max;
+//   if (ratio < 0.5) return "bg-[#FCAC12]";
+//   if (ratio < 0.75) return "bg-[#FD3C4A]";
+//   return "bg-[#00A86B]";
+// }
 
 export default Wallet;

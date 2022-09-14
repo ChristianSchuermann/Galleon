@@ -37,12 +37,6 @@ function Login(props) {
 
   return (
     <div className="grid grid-cols-1 mx">
-      {/*       <img
-        className="w-86 h-86 z-10 ml-64 absolute "
-        src={galleons}
-        alt="Galleons"
-      />
- */}
 
       <div className=" flex flex-col justify-center mt-32 mb-40">
         <form
