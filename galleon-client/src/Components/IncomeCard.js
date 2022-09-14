@@ -8,7 +8,7 @@ const API_URL = "http://localhost:5005";
 // We are deconstructing props object directly in the parentheses of the function
 function IncomeCard({
   incomeTitle,
-  incomeDescription,
+
   incomeValue,
   incomeCategory,
   incomeId,
