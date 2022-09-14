@@ -46,18 +46,17 @@ function Wallet({ amount, max }) {
 
 
   return (
-    
-      <div className=" border-2 py-10 w-60  rounded-3xl">
+    <>
+      <div className="circle border-2 py-10 w-60  rounded-3xl">
 
-
+        <div className="flex flex-col justify-center items-center mt-5">
         <h1>Your total income:  {incomeTotal}</h1>
         <h1>Your total expense:  {expenseTotal}</h1>
         <h1>Remaining: {incomeTotal - expenseTotal}</h1>
-
-        <ProgressBar progressPercentage={"percentage"} />
-
+        </div>
       </div>
-  
+      <ProgressBar progressPercentage={"percentage"} />
+      </>
   );
 }
 

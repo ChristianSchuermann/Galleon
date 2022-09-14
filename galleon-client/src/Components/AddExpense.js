@@ -32,7 +32,7 @@ function AddExpense(props) {
     
     <div className="w-52 border-2 border-red-400  flex flex-col m-5">
       <h3 className="bg-[#FD3C4A] py-3 text-white font-bold flex justify-center ">Add Expense</h3>
-      <form className="flex flex-col " onSubmit={handleSubmit}>
+      <form className="flex flex-col pr-2 pl-2" onSubmit={handleSubmit}>
         <label className="text-lg">Title:</label>
         <input
           type="text"
@@ -60,9 +60,12 @@ function AddExpense(props) {
           value={expense}
           onChange={(e) => setExpense(e.target.value)}
         />
-        <button className="btn-red w-52   justify-center  bg-[#FD3C4A] py-3 font-bold text-lg" type="submit" > ʛ Submit</button>
+
+         <button className="btn-red px-3 mb-2 mt-2 text-white  justify-center  bg-[#FD3C4A] py-3 font-bold text-lg" type="submit" > ʛ Submit</button>
+        
       </form>
-      
+     
+
     </div>
   );
 }

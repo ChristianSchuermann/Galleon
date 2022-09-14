@@ -19,3 +19,11 @@ body {
 .btn-green {
   background-color: #00A86B;
 }
+
+.circle {
+  height: 200px;
+  width: 200px;
+  background-color: #FCAC12;
+  border-radius: 50%;
+  display: inline-block;
+}
