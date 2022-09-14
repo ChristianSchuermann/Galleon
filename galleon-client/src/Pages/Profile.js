@@ -10,9 +10,9 @@ import IncomeListPage from "./IncomeList";
 function Profile() {
   return (
     <div>
-      <div >
+      <div className=" " >
         <Wallet />
-      <div className="flex">
+      <div className="">
         <div className="flex">
           <div >
             <ExpenseListPage />

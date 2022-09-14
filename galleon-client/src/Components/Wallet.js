@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import ProgressBar from "./ProgressBar";
 
 const API_URL = "http://localhost:5005";
 
@@ -21,7 +22,7 @@ function Wallet({ amount, max }) {
       .then((response) => setWalletExpense(response.data))
       .catch((error) => console.log(error));
 
-      axios
+    axios
       .get(`${API_URL}/api/income`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
@@ -41,30 +42,22 @@ function Wallet({ amount, max }) {
     incomeTotal += _income.income;
   });
 
-  const classNames = [];
-  // const ratio = expenseTotal  / incomeTotal;
-  // if (ratio > 0.75) {
-  //   classNames.push("bg-[#FD3C4A]", "bg-opacity-10");
-  // } 
-  // if ( 0.5 < ratio < 0.75) {
-  //   classNames.push("bg-[#FCAC12]", "bg-opacity-10");
-  // } 
-  // else {
-  //   classNames.push("bg-[#00A86B]", "bg-opacity-10");
-  // }
+ 
+
 
   return (
-    <div className={classNames.join(" ")}>
-      <div className="border-2 py-10 w-60  rounded-3xl bg-[#FCAC12]">
+    
+      <div className=" border-2 py-10 w-60  rounded-3xl">
 
 
-      <h1>Your total income:  {incomeTotal}</h1>
-      <h1>Your total expense:  {expenseTotal}</h1>
-      <h1>Remaining: {incomeTotal - expenseTotal}</h1>
+        <h1>Your total income:  {incomeTotal}</h1>
+        <h1>Your total expense:  {expenseTotal}</h1>
+        <h1>Remaining: {incomeTotal - expenseTotal}</h1>
 
+        <ProgressBar progressPercentage={"percentage"} />
 
       </div>
-    </div>
+  
   );
 }
 

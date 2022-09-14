@@ -29,18 +29,18 @@ function AddExpense(props) {
   };
 
   return (
-    <div className="w-96 border-2">
-      <h3>Add Expense</h3>
-
-      <form onSubmit={handleSubmit}>
-        <label>Title:</label>
+    
+    <div className="w-52 border-2 border-red-400  flex flex-col m-5">
+      <h3 className="bg-[#FD3C4A] py-3 text-white font-bold flex justify-center ">Add Expense</h3>
+      <form className="flex flex-col " onSubmit={handleSubmit}>
+        <label className="text-lg">Title:</label>
         <input
           type="text"
           name="title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-
+  
         <Dropdown
           placeholder="Select a category"
           options={["Rent", "Food", "Bills", "Shopping", "Transportation", "Entertainment", "other..."]}
@@ -53,16 +53,16 @@ function AddExpense(props) {
           onOpen={() => console.log("open!")}
         />
 
-        <label>Amount:</label>
+        <label className="text-lg">Amount:</label>
         <input
           type="number"
           name="amount"
           value={expense}
           onChange={(e) => setExpense(e.target.value)}
         />
-
-        <button type="submit"> ʛ Submit</button>
+        
       </form>
+      <button className="btn-red w-52   justify-center  bg-[#FD3C4A] py-3 font-bold text-lg" type="submit" > ʛ Submit</button>
     </div>
   );
 }
