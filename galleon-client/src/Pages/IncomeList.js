@@ -29,6 +29,7 @@ function IncomeListPage() {
 
   return (
     <div>
+      <AddIncome refreshExpense={getIncome} />
       {income.map((income) => {
         return (
           <IncomeCard

@@ -37,18 +37,8 @@ function Signup(props) {
 
   return (
     <div className="grid grid-cols-1 mx">
-      {/* <img
-        className="w-86 h-86 z-10 ml-64 absolute "
-        src={galleons}
-        alt="Galleons"
-      /> */}
-
-
-     
-      <div className=" flex flex-col justify-center  mt-16 mb-40">
 
       <div className=" flex flex-col justify-center z-20 mt-16 mb-40">
-
         <form
           className="max-w-[500px]  max-h-[400] w-full mx-auto bg-[#7F3DFF] p-12 px-11 rounded-lg"
           onSubmit={handleSignupSubmit}
@@ -107,12 +97,7 @@ function Signup(props) {
           <div className="flex justify-center text-white">
             <p>Already have an account?</p>
 
-            <Link
-              className="text-white hover:text-violet-400 ml-2"
-              to={"/login"}
-            >
-              ʛ Login
-            </Link>
+            <Link className="text-white hover:text-violet-400 ml-2" to={"/login"}>ʛ Login</Link>
           </div>
         </form>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
