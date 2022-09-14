@@ -60,10 +60,12 @@ function AddExpense(props) {
           value={expense}
           onChange={(e) => setExpense(e.target.value)}
         />
+
          <button className="btn-red px-3 mb-2 mt-2 text-white  justify-center  bg-[#FD3C4A] py-3 font-bold text-lg" type="submit" > ʛ Submit</button>
         
       </form>
      
+
     </div>
   );
 }
