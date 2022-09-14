@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 
+import { Dropdown, Selection } from "react-dropdown-now";
+
 const API_URL = "http://localhost:5005";
 
 // We are deconstructing props object directly in the parentheses of the function
@@ -88,10 +90,17 @@ function ExpenseCard({
           value={expense}
           onChange={changeExpense}
         />
-        <input
+        <Dropdown
           disabled={editDisabled}
-          value={category}
-          onChange={changeCategory}
+          placeholder={category}
+          options={["Food", "Rent", "Car"]}
+          value="one"
+          // onChange={(value) => changeCategory(value.value)}
+          onSelect={(value) => changeCategory(value.value)} // always fires once a selection happens even if there is no change
+          onClose={(closedBySelection) =>
+            console.log("closedBySelection?:", closedBySelection)
+          }
+          onOpen={() => console.log("open!")}
         />
       </form>
       {editDisabled ? <button onClick={toggleEdit}>Edit Expense</button> : null}

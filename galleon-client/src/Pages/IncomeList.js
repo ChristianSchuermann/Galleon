@@ -4,6 +4,9 @@ import axios from "axios";
 import IncomeCard from "../Components/IncomeCard";
 import AddIncome from "../Components/AddIncome";
 
+import { Dropdown, Selection } from "react-dropdown-now";
+import "react-dropdown-now/style.css";
+
 const API_URL = "http://localhost:5005";
 
 function IncomeListPage() {
