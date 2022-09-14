@@ -73,10 +73,10 @@ function ExpenseCard({
   return (
     <>
       <div className="w-52 m-5  border-2 border-red-400  ">
-        <form>
+        <form className="flex flex-col pr-2 pl-2 my-2">
           <div className="flex">
             <input  
-              size="16" disabled={editDisabled} value={title} onChange={changeTitle} />
+              size="14" disabled={editDisabled} value={title} onChange={changeTitle} />
 
             <input
               maxlength="6" 
@@ -100,14 +100,14 @@ function ExpenseCard({
             onOpen={() => console.log("open!")}
           />
         </form>
-        {editDisabled ? <button onClick={toggleEdit}>Edit Expense</button> : null}
+        {editDisabled ? <button className="btn-red w-52 py-1  mt-2 text-white grid content-center bg-[#FD3C4A]  font-bold " onClick={toggleEdit}>Edit Expense</button> : null}
         <div className="flex">
         {editDisabled ? null : (
-          <button className="btn-red" onClick={submitExpense}>Submit Expense</button>
+          <button className="btn-green" onClick={submitExpense}>Submit Expense</button>
 
         )}
         {editDisabled ? null : (
-          <button className="btn-green" onClick={deleteExpense}>Delete Expense</button>
+          <button className="btn-red" onClick={deleteExpense}>Delete Expense</button>
         )}
         </div>
       </div>

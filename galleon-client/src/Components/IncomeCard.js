@@ -45,7 +45,7 @@ function IncomeCard({
       .delete(`${API_URL}/api/income/${incomeId}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
-      .then(() => {})
+      .then(() => { })
       .catch((err) => console.log(err));
   };
 
@@ -69,16 +69,17 @@ function IncomeCard({
   };
 
   return (
-    <div className="box-border py-10 w-60  rounded-3xl flex items-center justify-center">
-      <form>
-        <input disabled={editDisabled} value={title} onChange={changeTitle} />
+    <div className="w-52 m-5  border-2 border-green-400  ">
+      <form className="flex flex-col pr-2 pl-2 my-2">
+        <div className="flex">
+          <input  size="14" disabled={editDisabled} value={title} onChange={changeTitle} />
 
-        <input disabled={editDisabled} value={income} onChange={changeIncome} />
-
+          <input  maxlength="6"  size="6" disabled={editDisabled} value={income} onChange={changeIncome} />
+        </div>
         <Dropdown
           disabled={editDisabled}
           placeholder={category}
-          options={["Rent", "Food", "Bills", "Shopping", "Transportation", "Entertainment", "other..."]}
+          options={["Salary", "Passive Income", "Inheritance", "Other"]}
           value={category}
           onChange={(value) => changeCategory(value)}
           onSelect={(value) => changeCategory(value)}
@@ -88,13 +89,15 @@ function IncomeCard({
           onOpen={() => console.log("open!")}
         />
       </form>
-      {editDisabled ? <button onClick={toggleEdit}>Edit Income</button> : null}
+      {editDisabled ? <button className="btn-green w-52 py-1  mt-2 text-white grid content-center font-bold " onClick={toggleEdit}>Edit Income</button> : null}
+      <div className="flex">
       {editDisabled ? null : (
-        <button onClick={deleteIncome}>Delete Income</button>
+        <button className="btn-green" onClick={submitIncome}>Submit Income</button>
       )}
       {editDisabled ? null : (
-        <button onClick={submitIncome}>Submit Income</button>
+        <button className="btn-red" onClick={deleteIncome}>Delete Income</button>
       )}
+      </div>
     </div>
   );
 }
