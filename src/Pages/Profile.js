@@ -1,32 +1,69 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import DoughnutChart from "../charts/Doughnut";
 import Wallet from "../Components/Wallet";
 import ExpenseListPage from "./ExpenseList";
 import IncomeListPage from "./IncomeList";
-
+const API_URL = "http://localhost:5005";
 
 function Profile() {
+  const [expense, setExpense] = useState([]);
+  const [income, setIncome] = useState([]);
+
+  const getExpense = () => {
+    const storedToken = localStorage.getItem("authToken");
+
+    // Send the token through the request "Authorization" Headers
+    axios
+      .get(`${API_URL}/api/expense`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then((response) => setExpense(response.data))
+      .catch((error) => console.log(error));
+  };
+
+  const getIncome = () => {
+    const storedToken = localStorage.getItem("authToken");
+
+    // Send the token through the request "Authorization" Headers
+    axios
+      .get(`${API_URL}/api/income`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then((response) => setIncome(response.data))
+      .catch((error) => console.log(error));
+  };
+
+  // We set this effect will run only once, after the initial render
+  // by setting the empty dependency array - []
+  useEffect(() => {
+    getIncome();
+  }, []);
+
+  // We set this effect will run only once, after the initial render
+  // by setting the empty dependency array - []
+  useEffect(() => {
+    getExpense();
+  }, []);
+
   return (
     <div>
-
-      <div>
-        <Wallet />
+        <Wallet incomes={income} expenses={expense}  />
 
         <div className="flex flex-col md:flex-row">
           <div className="flex  w-1/2 justify-center md:flex-row">
             <div>
-              <ExpenseListPage />
+              <ExpenseListPage expenses={expense} refresh={getExpense} />
             </div>
             <div>
-              <IncomeListPage />
+              <IncomeListPage incomes={income} refresh={getIncome}  />
             </div>
           </div>
 
           <div>
-            <DoughnutChart />
+            <DoughnutChart expenses={expense} />
           </div>
          </div>
-      </div>
     </div> 
   );
 }

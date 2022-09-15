@@ -11,7 +11,7 @@ function IncomeCard({
   incomeValue,
   incomeCategory,
   incomeId,
-  setAllIncome,
+  refresh,
 }) {
   const [editDisabled, setEditDisabled] = useState(true);
 
@@ -35,6 +35,7 @@ function IncomeCard({
         setTitle(updatedIncome.title);
         setCategory(updatedIncome.category);
         setIncome(updatedIncome.income);
+        refresh();
       })
       .catch((error) => console.log(error));
   };
@@ -48,7 +49,7 @@ function IncomeCard({
       .then((response) => {
         const oneIncome = response.data;
         console.log(response.data);
-        setAllIncome(response.data);
+        refresh(response.data);
       })
       .catch((err) => console.log(err));
   };
@@ -84,7 +85,7 @@ function IncomeCard({
           />
 
           <input
-            maxlength="6"
+            maxLength="6"
             size="6"
             disabled={editDisabled}
             value={income}

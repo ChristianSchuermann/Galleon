@@ -1,6 +1,5 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import { Dropdown } from "react-dropdown-now";
 
 const API_URL = "http://localhost:5005"
@@ -11,7 +10,7 @@ function ExpenseCard({
   expenseValue,
   expenseCategory,
   expenseId,
-  setAllExpense,
+  refresh,
 }) {
   const [editDisabled, setEditDisabled] = useState(true);
 
@@ -35,6 +34,7 @@ function ExpenseCard({
         setTitle(updatedExpense.title);
         setCategory(updatedExpense.category);
         setExpense(updatedExpense.expense);
+        refresh()
       })
       .catch((error) => console.log(error));
   };
@@ -46,10 +46,8 @@ function ExpenseCard({
       .delete(`${API_URL}/api/expense/${expenseId}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
-      .then((response) => {
-        const oneExpense = response.data;
-        console.log(response.data);
-        setAllExpense(response.data);
+      .then(() => {
+        refresh()
       })
       .catch((err) => console.log(err));
   };
@@ -86,7 +84,7 @@ function ExpenseCard({
             />
 
             <input
-              maxlength="6"
+              maxLength="6"
               size="6"
               disabled={editDisabled}
               value={expense}

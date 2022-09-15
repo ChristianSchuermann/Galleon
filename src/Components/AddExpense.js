@@ -2,8 +2,6 @@ import { useState } from "react";
 import axios from "axios";
 import { Dropdown } from "react-dropdown-now";
 
-/* dsadsadsadad */
-
 const API_URL = "http://localhost:5005"
 
 function AddExpense(props) {
@@ -24,7 +22,9 @@ function AddExpense(props) {
       .then((response) => {
         setTitle("");
         setExpense(0);
-        props.refreshExpense();
+
+        props.refresh()
+
       })
       .catch((error) => console.log(error));
   };

@@ -1,53 +1,28 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
 import ProgressBar from "./ProgressBar";
+
+
+function Wallet({incomes, expenses}) {
 
 const API_URL = "http://localhost:5005"
 
-function Wallet() {
   let expenseTotal = 0;
   let incomeTotal = 0;
 
-  const [walletExpense, setWalletExpense] = useState([]);
-  const [walletIncome, setWalletIncome] = useState([]);
-
-  const getExpense = () => {
-    const storedToken = localStorage.getItem("authToken");
-
-    // Send the token through the request "Authorization" Headers
-    axios
-      .get(`${API_URL}/api/expense`, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      })
-      .then((response) => setWalletExpense(response.data))
-      .catch((error) => console.log(error));
-
-    axios
-      .get(`${API_URL}/api/income`, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      })
-      .then((response) => setWalletIncome(response.data))
-      .catch((error) => console.log(error));
-  };
-
-  useEffect(() => {
-    getExpense();
-
-  }, []);
-
-  walletExpense.map((_expense) => {
-    expenseTotal += _expense.expense;
-  });
-
-  walletIncome.map((_income) => {
+  incomes.forEach((_income) => {
     incomeTotal += _income.income;
   });
 
+  expenses.forEach((_expense) => {
+   expenseTotal += _expense.expense;
+  });
+
   function getPercentage(incomeTotal, expenseTotal) {
-    let persentage = ((expenseTotal * 100) / incomeTotal).toFixed(2);
-    console.log(persentage);
-    return persentage;
-  }
+
+    let persentage =  ((expenseTotal *100) / incomeTotal).toFixed(2)
+    console.log (persentage)
+    return persentage
+   } 
+
 
   return (
     <>
