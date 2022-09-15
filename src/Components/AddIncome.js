@@ -24,6 +24,7 @@ function AddIncome(props) {
       .then((response) => {
         setTitle("");
         setIncome(0);
+        props.refreshIncome();
       })
       .catch((error) => console.log(error));
   };

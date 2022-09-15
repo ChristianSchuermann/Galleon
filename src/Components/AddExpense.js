@@ -9,7 +9,7 @@ function AddExpense(props) {
   const [title, setTitle] = useState("");
   const [expense, setExpense] = useState(0);
   const [category, SetCategory] = useState("");
-
+console.log(props)
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -24,6 +24,7 @@ function AddExpense(props) {
       .then((response) => {
         setTitle("");
         setExpense(0);
+        props.refreshExpense()
       })
       .catch((error) => console.log(error));
   };
