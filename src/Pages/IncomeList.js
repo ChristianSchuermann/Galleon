@@ -32,7 +32,7 @@ function IncomeListPage() {
       <AddIncome refreshIncome={getIncome} />
       {income.map((income) => {
         return (
-          <IncomeCard
+          <IncomeCard setAllIncome={setIncome}
             key={income._id}
             incomeId={income._id}
             incomeTitle={income.title}

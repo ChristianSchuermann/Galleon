@@ -11,7 +11,7 @@ function ExpenseCard({
   expenseValue,
   expenseCategory,
   expenseId,
-  setAllExpense
+  setAllExpense,
 }) {
   const [editDisabled, setEditDisabled] = useState(true);
 
@@ -50,7 +50,6 @@ function ExpenseCard({
         const oneExpense = response.data;
         console.log(response.data);
         setAllExpense(response.data);
-
       })
       .catch((err) => console.log(err));
   };
