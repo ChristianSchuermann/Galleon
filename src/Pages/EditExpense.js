@@ -39,6 +39,7 @@ function EditExpensePage(props) {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
+        props.refreshExpense()
         navigate(`/expense/${expenseID}`);
       });
   };
@@ -50,6 +51,7 @@ function EditExpensePage(props) {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then(() => {
+        props.refreshExpense()
         navigate("/expense");
       })
       .catch((err) => console.log(err));

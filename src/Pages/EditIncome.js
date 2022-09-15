@@ -39,6 +39,7 @@ function EditIncomePage(props) {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
+        props.refreshExpense()
         navigate(`/income/${incomeID}`);
       });
   };
@@ -50,6 +51,7 @@ function EditIncomePage(props) {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then(() => {
+        props.refreshExpense()
         navigate("/income");
       })
       .catch((err) => console.log(err));
