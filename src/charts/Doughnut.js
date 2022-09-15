@@ -6,67 +6,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 
-
-//axios request
-//fetch data
-// -> console.log response
-
-
-/* function ExpenseChart() {
-  const [value, setValue] = useState([]);
-  const [categorie, setCategorie] = useState([])
-
-   const getValue = () => {
-    const storedToken = localStorage.getItem("authToken");
-
-axios
-.get(`${API_URL}/api/expense`, {
-  headers: { Authorization: `Bearer ${storedToken}` },
-})
-.then((response) => setValue(response.data))
-console.log(response.data)
-.catch((error) => console.log(error));
-};
-
-//2 Arrays ->
-
-useEffect(() => {
-getValue();
-}, []); */
-
-//userID = _id.
-
-//route -> server data.find
-
-/* {expense.map((expense) => {
-        return (expenseValue
-                expenseCategory) */
-
-
-
-
+//chart here 
 
 function DoughnutChart() {
-
-    const [value, setValue] = useState([]);
-    const [categorie, setCategorie] = useState([])
-  
-     const getValue = () => {
-      const storedToken = localStorage.getItem("authToken");
-  
-  axios
-  .fetch(`http://localhost:5005/api/expense`, {
-    headers: { Authorization: `Bearer ${storedToken}` },
-  })
-  .then((response) => setValue(response.data))
-/*   console.log(response) */
-  .catch((error) => console.log(error));
-  };
-  
-  useEffect(() => {
-  getValue();
-  }, []);
-
 
   const data = {
     labels: [
