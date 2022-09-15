@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Dropdown } from "react-dropdown-now";
 
-const API_URL = "https://wandering-neckerchief-lion.cyclic.app" || "http://localhost:5005"
+const API_URL = "https://wandering-neckerchief-lion.cyclic.app" 
 
 // We are deconstructing props object directly in the parentheses of the function
 function ExpenseCard({

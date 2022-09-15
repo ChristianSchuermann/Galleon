@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-const API_URL = "https://wandering-neckerchief-lion.cyclic.app" || "http://localhost:5005"
+const API_URL = "https://wandering-neckerchief-lion.cyclic.app" 
 
 const AuthContext = React.createContext();
 
