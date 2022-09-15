@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 // eslint-disable-next-line
 import axios from "axios";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://wandering-neckerchief-lion.cyclic.app";
 const defaultData = [];
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 

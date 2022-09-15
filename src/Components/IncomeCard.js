@@ -3,7 +3,7 @@ import axios from "axios";
 
 import { Dropdown } from "react-dropdown-now";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://wandering-neckerchief-lion.cyclic.app";
 
 function IncomeCard({
   incomeTitle,

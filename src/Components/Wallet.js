@@ -3,7 +3,7 @@ import ProgressBar from "./ProgressBar";
 
 function Wallet({incomes, expenses}) {
 
-const API_URL = "http://localhost:5005"
+const API_URL = "https://wandering-neckerchief-lion.cyclic.app"
 
   let expenseTotal = 0;
   let incomeTotal = 0;

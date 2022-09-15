@@ -4,7 +4,7 @@ import DoughnutChart from "../charts/Doughnut";
 import Wallet from "../Components/Wallet";
 import ExpenseListPage from "./ExpenseList";
 import IncomeListPage from "./IncomeList";
-const API_URL = "http://localhost:5005";
+const API_URL = "https://wandering-neckerchief-lion.cyclic.app";
 
 function Profile() {
   const [expense, setExpense] = useState([]);
