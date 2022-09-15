@@ -12,7 +12,6 @@ function AddExpense(props) {
   const [title, setTitle] = useState("");
   const [expense, setExpense] = useState(0);
   const [category, SetCategory] = useState("");
-console.log(props)
   const handleSubmit = (e) => {
     e.preventDefault();
 

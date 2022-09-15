@@ -44,14 +44,20 @@ function EditExpensePage(props) {
       });
   };
 
-  const deleteExpense = () => {
+  const deleteExpenseChris = () => {
+    console.log("Clicked")
     const storedToken = localStorage.getItem("authToken");
     axios
       .delete(`${API_URL}/api/expense/${expenseID}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
-      .then(() => {
-        props.refreshExpense()
+      .then((response) => {
+        const oneExpense = response.data;
+        console.log(response.data)
+        setTitle(oneExpense.title);
+        setDescription(oneExpense.description);
+        setExpense(oneExpense.expense);
+        setCategory(oneExpense.category);
         navigate("/expense");
       })
       .catch((err) => console.log(err));
@@ -94,7 +100,7 @@ function EditExpensePage(props) {
         <button type="submit">Update Expense</button>
       </form>
 
-      <button onClick={deleteExpense}>Delete Expense</button>
+      <button onClick={deleteExpenseChris}>Delete Expense</button>
     </div>
   );
 }
