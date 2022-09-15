@@ -2,8 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { Dropdown } from "react-dropdown-now";
 
-
-const API_URL = "http://localhost:5005";
+const API_URL = "http://localhost:5005"
 
 function AddIncome(props) {
   const [title, setTitle] = useState("");
@@ -31,7 +30,9 @@ function AddIncome(props) {
 
   return (
     <div className="w-52 border-2 border-green-400 flex flex-col m-5">
-      <h3 className="bg-[#00A86B] py-3 text-white font-bold flex justify-center">Add Income</h3>
+      <h3 className="bg-[#00A86B] py-3 text-white font-bold flex justify-center">
+        Add Income
+      </h3>
 
       <form className="flex flex-col pr-2 pl-2" onSubmit={handleSubmit}>
         <label className="text-lg">Title:</label>
@@ -42,7 +43,6 @@ function AddIncome(props) {
           onChange={(e) => setTitle(e.target.value)}
         />
 
-       
         <Dropdown
           placeholder="Select a category"
           options={["Salary", "Passive Income", "Inheritance", "Other"]}
@@ -61,9 +61,14 @@ function AddIncome(props) {
           value={income}
           onChange={(e) => setIncome(e.target.value)}
         />
-         <button className="btn-green px-3 mb-2 mt-2 text-white  justify-center  py-3 font-bold text-lg"  type="submit"> ʛ Submit</button>
+        <button
+          className="btn-green px-3 mb-2 mt-2 text-white  justify-center bg-[#00A86B]  py-3 font-bold text-lg"
+          type="submit"
+        >
+          {" "}
+          ʛ Submit
+        </button>
       </form>
-     
     </div>
   );
 }

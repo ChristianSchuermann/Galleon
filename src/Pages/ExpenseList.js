@@ -1,7 +1,6 @@
 import ExpenseCard from "../Components/ExpenseCard";
 import AddExpense from "../Components/AddExpense";
 
-
 function ExpenseListPage(props) {
   const list = props.expenses;
 
@@ -11,7 +10,11 @@ function ExpenseListPage(props) {
       {list.map((expense) => {
         return (
           <ExpenseCard
+
             refresh={props.refresh}
+
+            setAllExpense={setExpense}
+
             key={expense._id}
             expenseId={expense._id}
             expenseTitle={expense.title}
