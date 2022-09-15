@@ -36,7 +36,7 @@ function DoughnutChart() {
     ],
   };
   return (
-    <div className="mt-20">
+    <div className="my-10">
       <div style={{ width: "450px" }}>
         <Doughnut data={data} />
       </div>
