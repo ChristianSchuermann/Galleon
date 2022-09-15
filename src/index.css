@@ -27,3 +27,8 @@ body {
   border-radius: 50%;
   display: inline-block;
 }
+
+.wallet {
+  display: flex;
+  justify-content: center;
+}

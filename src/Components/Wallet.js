@@ -4,7 +4,7 @@ import ProgressBar from "./ProgressBar";
 
 const API_URL = "http://localhost:5005";
 
-function Wallet({ amount, max }) {
+function Wallet() {
   let expenseTotal = 0;
   let incomeTotal = 0;
 
@@ -42,11 +42,19 @@ function Wallet({ amount, max }) {
     incomeTotal += _income.income;
   });
 
+<<<<<<< HEAD:galleon-client/src/Components/Wallet.js
+ function getPercentage(incomeTotal, expenseTotal) {
+  let persentage =  ((expenseTotal *100) / incomeTotal).toFixed(2)
+  console.log (persentage)
+  return persentage
+ } 
+=======
   function getPercentage(incomeTotal, expenseTotal) {
     let persentage =  ((expenseTotal *100) / incomeTotal).toFixed(2)
     console.log (persentage)
     return persentage
    } 
+>>>>>>> main:src/Components/Wallet.js
 
 
   return (
