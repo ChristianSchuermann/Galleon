@@ -62,7 +62,7 @@ function AddIncome(props) {
           onChange={(e) => setIncome(e.target.value)}
         />
         <button
-          className="btn-green px-3 mb-2 mt-2 text-white  justify-center bg-[#49ff12]  py-3 font-bold text-lg"
+          className="btn-green px-3 mb-2 mt-2 text-white  justify-center bg-[#00A86B]  py-3 font-bold text-lg"
           type="submit"
         >
           {" "}
