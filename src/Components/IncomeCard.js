@@ -106,7 +106,7 @@ function IncomeCard({
       </form>
       {editDisabled ? (
         <button
-          className="bg-green w-52 py-1  mt-2 text-white grid content-center font-bold "
+          className="btn-green w-52 py-1  mt-2 text-white grid content-center font-bold "
           onClick={toggleEdit}
         >
           Edit Income
