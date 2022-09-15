@@ -13,7 +13,6 @@ function Profile() {
   const getExpense = () => {
     const storedToken = localStorage.getItem("authToken");
 
-
     axios
       .get(`${API_URL}/api/expense`, {
         headers: { Authorization: `Bearer ${storedToken}` },
@@ -37,30 +36,29 @@ function Profile() {
     getIncome();
   }, []);
 
- 
   useEffect(() => {
     getExpense();
   }, []);
 
   return (
     <div>
-        <Wallet incomes={income} expenses={expense}  />
+      <Wallet incomes={income} expenses={expense} />
 
-        <div className="flex flex-col md:flex-row">
-          <div className="flex  w-1/2 justify-center md:flex-row">
-            <div>
-              <ExpenseListPage expenses={expense} refresh={getExpense} />
-            </div>
-            <div>
-              <IncomeListPage incomes={income} refresh={getIncome}  />
-            </div>
-          </div>
-
+      <div className="flex flex-col md:flex-row">
+        <div className="flex  w-1/2 justify-center md:flex-row">
           <div>
-            <DoughnutChart expenses={expense} />
+            <ExpenseListPage expenses={expense} refresh={getExpense} />
           </div>
-         </div>
-    </div> 
+          <div>
+            <IncomeListPage incomes={income} refresh={getIncome} />
+          </div>
+        </div>
+
+        <div>
+          <DoughnutChart expenses={expense} />
+        </div>
+      </div>
+    </div>
   );
 }
 
