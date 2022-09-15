@@ -1,6 +1,4 @@
 import React from "react";
-// eslint-disable-next-line
-import { Link } from "react-router-dom";
 
 export const Button = (props) => {
   return (
@@ -13,4 +11,3 @@ export const Button = (props) => {
     </button>
   );
 };
-

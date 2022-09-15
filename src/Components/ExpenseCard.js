@@ -2,9 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 import { Dropdown } from "react-dropdown-now";
 
-const API_URL = "http://localhost:5005"
+const API_URL = "http://localhost:5005";
 
-// We are deconstructing props object directly in the parentheses of the function
 function ExpenseCard({
   expenseTitle,
   expenseValue,
@@ -29,25 +28,23 @@ function ExpenseCard({
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
-        // the api should return the updated object (expense))
         const updatedExpense = response.data;
         setTitle(updatedExpense.title);
         setCategory(updatedExpense.category);
         setExpense(updatedExpense.expense);
-        refresh()
+        refresh();
       })
       .catch((error) => console.log(error));
   };
 
-  const deleteExpenseChris = () => {
-    console.log("Clicked");
+  const deleteExpense = () => {
     const storedToken = localStorage.getItem("authToken");
     axios
       .delete(`${API_URL}/api/expense/${expenseId}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
-      .then(() => {
-        refresh()
+      .then((response) => {
+        refresh(response.data);
       })
       .catch((err) => console.log(err));
   };
@@ -107,12 +104,9 @@ function ExpenseCard({
             value={category}
             onChange={(value) => changeCategory(value)}
             onSelect={(value) => changeCategory(value)}
-            onClose={(closedBySelection) =>
-              console.log("closedBySelection?:", closedBySelection)
-            }
-            onOpen={() => console.log("open!")}
           />
         </form>
+
         {editDisabled ? (
           <button
             className="btn-red w-52 py-1  mt-2 text-white grid content-center bg-[#FD3C4A]  font-bold "
@@ -128,7 +122,7 @@ function ExpenseCard({
             </button>
           )}
           {editDisabled ? null : (
-            <button className="btn-red" onClick={deleteExpenseChris}>
+            <button className="btn-red" onClick={deleteExpense}>
               Delete Expense
             </button>
           )}

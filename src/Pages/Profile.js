@@ -13,7 +13,7 @@ function Profile() {
   const getExpense = () => {
     const storedToken = localStorage.getItem("authToken");
 
-    // Send the token through the request "Authorization" Headers
+
     axios
       .get(`${API_URL}/api/expense`, {
         headers: { Authorization: `Bearer ${storedToken}` },
@@ -25,7 +25,6 @@ function Profile() {
   const getIncome = () => {
     const storedToken = localStorage.getItem("authToken");
 
-    // Send the token through the request "Authorization" Headers
     axios
       .get(`${API_URL}/api/income`, {
         headers: { Authorization: `Bearer ${storedToken}` },
@@ -34,14 +33,11 @@ function Profile() {
       .catch((error) => console.log(error));
   };
 
-  // We set this effect will run only once, after the initial render
-  // by setting the empty dependency array - []
   useEffect(() => {
     getIncome();
   }, []);
 
-  // We set this effect will run only once, after the initial render
-  // by setting the empty dependency array - []
+ 
   useEffect(() => {
     getExpense();
   }, []);

@@ -5,11 +5,9 @@ import React, { useState, useEffect } from "react";
 // eslint-disable-next-line
 import axios from "axios";
 
-
-//chart here 
+//chart here
 
 function DoughnutChart() {
-
   const data = {
     labels: [
       //category
@@ -39,7 +37,7 @@ function DoughnutChart() {
   };
   return (
     <div className="mt-20">
-      <div style={{ width: "450px"}}>
+      <div style={{ width: "450px" }}>
         <Doughnut data={data} />
       </div>
     </div>

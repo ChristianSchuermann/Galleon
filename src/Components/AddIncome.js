@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { Dropdown } from "react-dropdown-now";
 
-const API_URL = "http://localhost:5005"
+const API_URL = "http://localhost:5005";
 
 function AddIncome(props) {
   const [title, setTitle] = useState("");
@@ -13,7 +13,6 @@ function AddIncome(props) {
     e.preventDefault();
 
     const requestBody = { title, category, income };
-
     const storedToken = localStorage.getItem("authToken");
 
     axios
@@ -23,7 +22,7 @@ function AddIncome(props) {
       .then((response) => {
         setTitle("");
         setIncome(0);
-        props.refreshIncome();
+        props.refresh();
       })
       .catch((error) => console.log(error));
   };
@@ -48,12 +47,13 @@ function AddIncome(props) {
           options={["Salary", "Passive Income", "Inheritance", "Other"]}
           value={category}
           onChange={(value) => SetCategory(value.value)}
-          onSelect={(value) => SetCategory(value.value)} // always fires once a selection happens even if there is no change
+          onSelect={(value) => SetCategory(value.value)}
           onClose={(closedBySelection) =>
             console.log("closedBySelection?:", closedBySelection)
           }
           onOpen={() => console.log("open!")}
         />
+
         <label className="text-lg">Amount:</label>
         <input
           type="number"
@@ -61,6 +61,7 @@ function AddIncome(props) {
           value={income}
           onChange={(e) => setIncome(e.target.value)}
         />
+
         <button
           className="btn-green px-3 mb-2 mt-2 text-white  justify-center bg-[#00A86B]  py-3 font-bold text-lg"
           type="submit"

@@ -3,9 +3,8 @@ import axios from "axios";
 
 import { Dropdown } from "react-dropdown-now";
 
-const API_URL = "http://localhost:5005"
+const API_URL = "http://localhost:5005";
 
-// We are deconstructing props object directly in the parentheses of the function
 function IncomeCard({
   incomeTitle,
   incomeValue,
@@ -14,7 +13,6 @@ function IncomeCard({
   refresh,
 }) {
   const [editDisabled, setEditDisabled] = useState(true);
-
   const [title, setTitle] = useState(incomeTitle);
   const [income, setIncome] = useState(incomeValue);
   const [category, setCategory] = useState(incomeCategory);
@@ -30,7 +28,6 @@ function IncomeCard({
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
-        // the api should return the updated object (income)
         const updatedIncome = response.data;
         setTitle(updatedIncome.title);
         setCategory(updatedIncome.category);
@@ -47,8 +44,6 @@ function IncomeCard({
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
-        const oneIncome = response.data;
-        console.log(response.data);
         refresh(response.data);
       })
       .catch((err) => console.log(err));
@@ -99,12 +94,9 @@ function IncomeCard({
           value={category}
           onChange={(value) => changeCategory(value)}
           onSelect={(value) => changeCategory(value)}
-          onClose={(closedBySelection) =>
-            console.log("closedBySelection?:", closedBySelection)
-          }
-          onOpen={() => console.log("open!")}
         />
       </form>
+
       {editDisabled ? (
         <button
           className="btn-green w-52 py-1  mt-2 text-white grid content-center font-bold "
