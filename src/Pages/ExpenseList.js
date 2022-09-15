@@ -4,7 +4,7 @@ import axios from "axios";
 import ExpenseCard from "../Components/ExpenseCard";
 import AddExpense from "../Components/AddExpense";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://wandering-neckerchief-lion.cyclic.app" || "http://localhost:5005"
 
 function ExpenseListPage() {
   const [expense, setExpense] = useState([]);
@@ -32,7 +32,8 @@ function ExpenseListPage() {
       <AddExpense refreshExpense={getExpense} />
       {expense.map((expense) => {
         return (
-          <ExpenseCard setAllExpense={setExpense}
+          <ExpenseCard
+            setAllExpense={setExpense}
             key={expense._id}
             expenseId={expense._id}
             expenseTitle={expense.title}

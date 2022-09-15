@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://wandering-neckerchief-lion.cyclic.app" || "http://localhost:5005"
 
 function EditExpensePage(props) {
   const [title, setTitle] = useState("");
@@ -39,13 +39,13 @@ function EditExpensePage(props) {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
-        props.refreshExpense()
+        props.refreshExpense();
         navigate(`/expense/${expenseID}`);
       });
   };
 
   const deleteExpenseChris = () => {
-    console.log("Clicked")
+    console.log("Clicked");
     const storedToken = localStorage.getItem("authToken");
     axios
       .delete(`${API_URL}/api/expense/${expenseID}`, {
@@ -53,7 +53,7 @@ function EditExpensePage(props) {
       })
       .then((response) => {
         const oneExpense = response.data;
-        console.log(response.data)
+        console.log(response.data);
         setTitle(oneExpense.title);
         setDescription(oneExpense.description);
         setExpense(oneExpense.expense);

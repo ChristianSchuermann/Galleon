@@ -4,7 +4,7 @@ import axios from "axios";
 import IncomeCard from "../Components/IncomeCard";
 import AddIncome from "../Components/AddIncome";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://wandering-neckerchief-lion.cyclic.app" || "http://localhost:5005"
 
 function IncomeListPage() {
   const [income, setIncome] = useState([]);
@@ -32,7 +32,8 @@ function IncomeListPage() {
       <AddIncome refreshIncome={getIncome} />
       {income.map((income) => {
         return (
-          <IncomeCard setAllIncome={setIncome}
+          <IncomeCard
+            setAllIncome={setIncome}
             key={income._id}
             incomeId={income._id}
             incomeTitle={income.title}

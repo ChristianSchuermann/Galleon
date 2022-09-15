@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://wandering-neckerchief-lion.cyclic.app" || "http://localhost:5005"
 
 function EditIncomePage(props) {
   const [title, setTitle] = useState("");
@@ -39,7 +39,7 @@ function EditIncomePage(props) {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
-        props.refreshExpense()
+        props.refreshExpense();
         navigate(`/income/${incomeID}`);
       });
   };
@@ -51,7 +51,7 @@ function EditIncomePage(props) {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then(() => {
-        props.refreshExpense()
+        props.refreshExpense();
         navigate("/income");
       })
       .catch((err) => console.log(err));

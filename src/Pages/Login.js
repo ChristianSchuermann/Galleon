@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://wandering-neckerchief-lion.cyclic.app" || "http://localhost:5005"
 
 function Login(props) {
   const [email, setEmail] = useState("");
@@ -12,7 +12,8 @@ function Login(props) {
 
   const navigate = useNavigate();
 
-  const { storeToken, authenticateUser, setIsLoggedIn } = useContext(AuthContext);
+  const { storeToken, authenticateUser, setIsLoggedIn } =
+    useContext(AuthContext);
 
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
@@ -27,7 +28,7 @@ function Login(props) {
         console.log("JWT token", response.data.authToken);
         storeToken(response.data.authToken);
         authenticateUser();
-        setIsLoggedIn(true)
+        setIsLoggedIn(true);
         navigate("/profile");
       })
       .catch((error) => {
@@ -38,7 +39,6 @@ function Login(props) {
 
   return (
     <div className="grid grid-cols-1 mx">
-
       <div className=" flex flex-col justify-center mt-32 mb-40">
         <form
           className="max-w-[500px]  max-h-[400] w-full mx-auto bg-[#7F3DFF] p-12 px-11 rounded-lg"

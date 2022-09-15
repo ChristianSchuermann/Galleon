@@ -2,11 +2,9 @@ import { useState } from "react";
 import axios from "axios";
 import { Dropdown } from "react-dropdown-now";
 
-
-
 /* dsadsadsadad */
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://wandering-neckerchief-lion.cyclic.app" || "http://localhost:5005"
 
 function AddExpense(props) {
   const [title, setTitle] = useState("");
@@ -26,15 +24,16 @@ function AddExpense(props) {
       .then((response) => {
         setTitle("");
         setExpense(0);
-        props.refreshExpense()
+        props.refreshExpense();
       })
       .catch((error) => console.log(error));
   };
 
   return (
-    
     <div className="w-52 border-2 border-red-400  flex flex-col m-5">
-      <h3 className="bg-[#FD3C4A] py-3 text-white font-bold flex justify-center ">Add Expense</h3>
+      <h3 className="bg-[#FD3C4A] py-3 text-white font-bold flex justify-center ">
+        Add Expense
+      </h3>
       <form className="flex flex-col pr-2 pl-2" onSubmit={handleSubmit}>
         <label className="text-lg">Title:</label>
         <input
@@ -43,10 +42,18 @@ function AddExpense(props) {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-  
+
         <Dropdown
           placeholder="Select a category"
-          options={["Rent", "Food", "Bills", "Shopping", "Transportation", "Entertainment", "other..."]}
+          options={[
+            "Rent",
+            "Food",
+            "Bills",
+            "Shopping",
+            "Transportation",
+            "Entertainment",
+            "other...",
+          ]}
           value={category}
           onChange={(value) => SetCategory(value.value)}
           onSelect={(value) => SetCategory(value.value)} // always fires once a selection happens even if there is no change
@@ -63,10 +70,14 @@ function AddExpense(props) {
           value={expense}
           onChange={(e) => setExpense(e.target.value)}
         />
-         <button className="btn-red px-3 mb-2 mt-2 text-white  justify-center  bg-[#FD3C4A] py-3 font-bold text-lg" type="submit" > ʛ Submit</button>
-        
+        <button
+          className="btn-red px-3 mb-2 mt-2 text-white  justify-center  bg-[#FD3C4A] py-3 font-bold text-lg"
+          type="submit"
+        >
+          {" "}
+          ʛ Submit
+        </button>
       </form>
-     
     </div>
   );
 }

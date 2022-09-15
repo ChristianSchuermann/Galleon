@@ -14,4 +14,3 @@ export const Button = (props) => {
   );
 };
 
-//yellow from tailwindcss
