@@ -23,7 +23,7 @@ function Profile() {
           </div>
 
           <div>
-{/*             <DoughnutChart /> */}
+            <DoughnutChart />
           </div>
          </div>
       </div>
