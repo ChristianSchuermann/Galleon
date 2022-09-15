@@ -32,6 +32,7 @@ function Wallet() {
 
   useEffect(() => {
     getExpense();
+
   }, []);
 
   walletExpense.map((_expense) => {
@@ -55,14 +56,14 @@ function Wallet() {
       <div className="circle mb-10 py-10 ">
 
         <div className="flex flex-col justify-center items-center mt-8">
-        <h1 className="text-white text-xl">Your total income:  {incomeTotal}</h1>
-        <h1 className="text-white text-xl">Your total expense:  {expenseTotal}</h1>
+        <h1 className="text-white text-xl">Total income:  {incomeTotal}</h1>
+        <h1 className="text-white text-xl">Total expense:  {expenseTotal}</h1>
         <h1 className="text-white text-xl">Remaining: {incomeTotal - expenseTotal}</h1>
         </div>
       </div>
       
      
-      <ProgressBar progressPercentage={getPercentage(incomeTotal, expenseTotal) + "%"} />
+      <ProgressBar progressPercentage={getPercentage(incomeTotal, expenseTotal) + "%" } />
 
       </div>
       </>
