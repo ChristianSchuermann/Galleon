@@ -32,7 +32,7 @@ function ExpenseListPage() {
       <AddExpense refreshExpense={getExpense} />
       {expense.map((expense) => {
         return (
-          <ExpenseCard
+          <ExpenseCard setAllExpense={setExpense}
             key={expense._id}
             expenseId={expense._id}
             expenseTitle={expense.title}
