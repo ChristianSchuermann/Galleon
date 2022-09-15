@@ -42,19 +42,11 @@ function Wallet() {
     incomeTotal += _income.income;
   });
 
-<<<<<<< HEAD:galleon-client/src/Components/Wallet.js
- function getPercentage(incomeTotal, expenseTotal) {
-  let persentage =  ((expenseTotal *100) / incomeTotal).toFixed(2)
-  console.log (persentage)
-  return persentage
- } 
-=======
   function getPercentage(incomeTotal, expenseTotal) {
     let persentage =  ((expenseTotal *100) / incomeTotal).toFixed(2)
     console.log (persentage)
     return persentage
    } 
->>>>>>> main:src/Components/Wallet.js
 
 
   return (
