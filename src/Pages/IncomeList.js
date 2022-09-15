@@ -4,7 +4,7 @@ import axios from "axios";
 import IncomeCard from "../Components/IncomeCard";
 import AddIncome from "../Components/AddIncome";
 
-const API_URL = "https://wandering-neckerchief-lion.cyclic.app" || "http://localhost:5005"
+const API_URL = "http://localhost:5005"
 
 function IncomeListPage() {
   const [income, setIncome] = useState([]);

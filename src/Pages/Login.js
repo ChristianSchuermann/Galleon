@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 
-const API_URL = "https://wandering-neckerchief-lion.cyclic.app" 
+const API_URL = "http://localhost:5005" 
 
 function Login(props) {
   const [email, setEmail] = useState("");

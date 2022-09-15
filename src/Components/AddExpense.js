@@ -4,7 +4,7 @@ import { Dropdown } from "react-dropdown-now";
 
 /* dsadsadsadad */
 
-const API_URL = "https://wandering-neckerchief-lion.cyclic.app" 
+const API_URL = "http://localhost:5005"
 
 function AddExpense(props) {
   const [title, setTitle] = useState("");

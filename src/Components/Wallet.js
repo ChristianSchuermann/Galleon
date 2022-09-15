@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import ProgressBar from "./ProgressBar";
 
-const API_URL = "https://wandering-neckerchief-lion.cyclic.app" 
+const API_URL = "http://localhost:5005"
 
 function Wallet() {
   let expenseTotal = 0;
