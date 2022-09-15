@@ -12,8 +12,8 @@ function Profile() {
       <div>
         <Wallet />
 
-        <div className="flex">
-          <div className="flex">
+        <div className="flex flex-col md:flex-row">
+          <div className="flex flex-col w-1/2 justify-center md:flex-row">
             <div>
               <ExpenseListPage />
             </div>
