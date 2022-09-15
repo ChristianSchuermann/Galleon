@@ -2,10 +2,6 @@ import { useState } from "react";
 import axios from "axios";
 import { Dropdown } from "react-dropdown-now";
 
-
-
-/* dsadsadsadad */
-
 const API_URL = "http://localhost:5005";
 
 function AddExpense(props) {
@@ -26,13 +22,12 @@ function AddExpense(props) {
       .then((response) => {
         setTitle("");
         setExpense(0);
-        props.refreshExpense()
+        props.refresh()
       })
       .catch((error) => console.log(error));
   };
 
   return (
-    
     <div className="w-52 border-2 border-red-400  flex flex-col m-5">
       <h3 className="bg-[#FD3C4A] py-3 text-white font-bold flex justify-center ">Add Expense</h3>
       <form className="flex flex-col pr-2 pl-2" onSubmit={handleSubmit}>
