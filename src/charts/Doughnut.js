@@ -38,10 +38,8 @@ function DoughnutChart() {
     ],
   };
   return (
-    <div>
-      <h1>Chart</h1>
-
-      <div style={{ width: "750px" }}>
+    <div className="mt-20">
+      <div style={{ width: "450px"}}>
         <Doughnut data={data} />
       </div>
     </div>

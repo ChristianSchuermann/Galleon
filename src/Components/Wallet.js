@@ -32,6 +32,7 @@ function Wallet() {
 
   useEffect(() => {
     getExpense();
+
   }, []);
 
   walletExpense.map((_expense) => {
