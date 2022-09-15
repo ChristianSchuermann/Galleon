@@ -8,10 +8,10 @@ const API_URL = "http://localhost:5005";
 // We are deconstructing props object directly in the parentheses of the function
 function IncomeCard({
   incomeTitle,
-
   incomeValue,
   incomeCategory,
   incomeId,
+  setAllIncome,
 }) {
   const [editDisabled, setEditDisabled] = useState(true);
 
@@ -39,13 +39,17 @@ function IncomeCard({
       .catch((error) => console.log(error));
   };
 
-  const deleteIncome = () => {
+  const deleteIncomeChris = () => {
     const storedToken = localStorage.getItem("authToken");
     axios
       .delete(`${API_URL}/api/income/${incomeId}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
-      .then(() => { })
+      .then((response) => {
+        const oneIncome = response.data;
+        console.log(response.data);
+        setAllIncome(response.data);
+      })
       .catch((err) => console.log(err));
   };
 
@@ -72,9 +76,20 @@ function IncomeCard({
     <div className="w-52 m-5  border-2 border-green-400  ">
       <form className="flex flex-col pr-2 pl-2 my-2">
         <div className="flex">
-          <input  size="14" disabled={editDisabled} value={title} onChange={changeTitle} />
+          <input
+            size="14"
+            disabled={editDisabled}
+            value={title}
+            onChange={changeTitle}
+          />
 
-          <input  maxlength="6"  size="6" disabled={editDisabled} value={income} onChange={changeIncome} />
+          <input
+            maxlength="6"
+            size="6"
+            disabled={editDisabled}
+            value={income}
+            onChange={changeIncome}
+          />
         </div>
         <Dropdown
           disabled={editDisabled}
@@ -89,14 +104,25 @@ function IncomeCard({
           onOpen={() => console.log("open!")}
         />
       </form>
-      {editDisabled ? <button className="btn-green w-52 py-1  mt-2 text-white grid content-center font-bold " onClick={toggleEdit}>Edit Income</button> : null}
+      {editDisabled ? (
+        <button
+          className="btn-green w-52 py-1  mt-2 text-white grid content-center font-bold "
+          onClick={toggleEdit}
+        >
+          Edit Income
+        </button>
+      ) : null}
       <div className="flex">
-      {editDisabled ? null : (
-        <button className="btn-green" onClick={submitIncome}>Submit Income</button>
-      )}
-      {editDisabled ? null : (
-        <button className="btn-red" onClick={deleteIncome}>Delete Income</button>
-      )}
+        {editDisabled ? null : (
+          <button className="btn-green" onClick={submitIncome}>
+            Submit Income
+          </button>
+        )}
+        {editDisabled ? null : (
+          <button className="btn-red" onClick={deleteIncomeChris}>
+            Delete Income
+          </button>
+        )}
       </div>
     </div>
   );
