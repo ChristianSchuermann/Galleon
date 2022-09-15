@@ -104,6 +104,10 @@ function ExpenseCard({
             value={category}
             onChange={(value) => changeCategory(value)}
             onSelect={(value) => changeCategory(value)}
+            onClose={(closedBySelection) =>
+            console.log("closedBySelection?:", closedBySelection)
+          }
+          onOpen={() => console.log("open!")}
           />
         </form>
 
