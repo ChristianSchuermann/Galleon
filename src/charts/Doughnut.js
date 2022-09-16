@@ -54,7 +54,7 @@ function DoughnutChart(props) {
             label={renderLabel}
             data={doughnutData}
             cx={500} //x axis
-            cy={400} // y axis
+            cy={270} // y axis
             innerRadius={100}
             outerRadius={240}
             fill="#8884d8"
