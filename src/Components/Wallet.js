@@ -1,9 +1,7 @@
 import ProgressBar from "./ProgressBar";
 
-
-function Wallet({incomes, expenses}) {
-
-const API_URL = "https://wandering-neckerchief-lion.cyclic.app"
+function Wallet({ incomes, expenses }) {
+  const API_URL = "https://wandering-neckerchief-lion.cyclic.app";
 
   let expenseTotal = 0;
   let incomeTotal = 0;
@@ -13,16 +11,14 @@ const API_URL = "https://wandering-neckerchief-lion.cyclic.app"
   });
 
   expenses.forEach((_expense) => {
-   expenseTotal += _expense.expense;
+    expenseTotal += _expense.expense;
   });
 
   function getPercentage(incomeTotal, expenseTotal) {
-
-    let persentage =  ((expenseTotal *100) / incomeTotal).toFixed(2)
-    console.log (persentage)
-    return persentage
-   } 
-
+    let persentage = ((expenseTotal * 100) / incomeTotal).toFixed(2);
+    console.log(persentage);
+    return persentage;
+  }
 
   return (
     <>

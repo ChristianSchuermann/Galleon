@@ -6,11 +6,19 @@ import axios from "axios";
 
 const API_URL = "https://wandering-neckerchief-lion.cyclic.app";
 const defaultData = [];
-const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+const COLORS = [
+  "#0088FE",
+  "#00C49F",
+  "#FFBB28",
+  "#FF8042",
+  "#7F3DFF",
+  "#FD3C4A",
+  "00A86B",
+];
 
 const renderLabel = (entry) => {
-  return `${entry.name} (${entry.value})`
-}
+  return `${entry.name} (${entry.value})`;
+};
 
 function DoughnutChart(props) {
   const { expenses } = props;
@@ -40,15 +48,15 @@ function DoughnutChart(props) {
 
   return (
     <div className="my-10">
-      <div style={{ width: "450px" }}>
-        <PieChart width={1200} height={600}>
+      <div>
+        <PieChart width={1800} height={1800}>
           <Pie
             label={renderLabel}
             data={doughnutData}
-            cx={220}
-            cy={200}
-            innerRadius={60}
-            outerRadius={80}
+            cx={500} //x axis
+            cy={500} // y axis
+            innerRadius={100}
+            outerRadius={300}
             fill="#8884d8"
             paddingAngle={5}
             dataKey="value"
